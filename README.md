@@ -1,2 +1,4 @@
-# ChampMasteryBrawl
-A Riot Games API Challenge 2016 (4/22 - 5/9) entry focused on entertainment
+ChampMasteryBrawl
+=================
+
+A Symfony project created on April 25, 2016, 9:33 pm.
