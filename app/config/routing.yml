@@ -1,3 +1,13 @@
+lo_l_api:
+    resource: "@LoLApiBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+brawl:
+    resource: "@BrawlBundle/Controller/"
+    type:     annotation
+    prefix:   /brawl
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
