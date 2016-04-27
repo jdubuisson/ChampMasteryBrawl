@@ -83,12 +83,13 @@ hwi_oauth:
     # list of names of the firewalls in which this bundle is active, this setting MUST be set
     firewall_names: [main]
     resource_owners:
-        #facebook:
-            #type:                facebook
-            #client_id:           <client_id>
-            #client_secret:       <client_secret>
-            #options:
-                #display: popup
+        facebook:
+            type:                facebook
+            client_id:           "%facebook_app_id%"
+            client_secret:       "%facebook_app_secret%"
+            scope:               "email public_profile"
+            options:
+                auth_type: rerequest
         google:
             type:                google
             client_id:           "%google_app_id%"
@@ -101,7 +102,5 @@ hwi_oauth:
 
         # mapping between resource owners (see below) and properties
         properties:
-            #github: githubID
-            #twitter: twitterID
-            #facebook: facebookID
+            facebook: facebookID
             google: googleID

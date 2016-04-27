@@ -24,3 +24,7 @@ parameters:
     #OAuth through google key and secret
     google_app_id:           yourgoogleappid
     google_app_secret:       yourgoogleappsecret
+
+    #OAuth through facebook key and secret
+    facebook_app_id:           yourfacebookappid
+    facebook_app_secret:       yourfacebookappsecret

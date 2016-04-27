@@ -26,6 +26,13 @@ class User extends BaseUser
     private $googleID;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="facebook_id", type="string", nullable=true)
+     */
+    private $facebookID;
+
+    /**
      * Get id
      *
      * @return integer
@@ -56,5 +63,28 @@ class User extends BaseUser
     public function getGoogleID()
     {
         return $this->googleID;
+    }
+
+    /**
+     * Set facebookID
+     *
+     * @param string $facebookID
+     * @return User
+     */
+    public function setFacebookID($facebookID)
+    {
+        $this->facebookID = $facebookID;
+
+        return $this;
+    }
+
+    /**
+     * Get facebookID
+     *
+     * @return string
+     */
+    public function getFacebookID()
+    {
+        return $this->facebookID;
     }
 }

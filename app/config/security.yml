@@ -29,7 +29,7 @@ security:
                 default_target_path: /
                 provider: fos_userbundle
                 resource_owners:
-                    #facebook:          "/login/check-facebook"
+                    facebook: "/login/check-facebook"
                     google: "/login/check-google"
                 oauth_user_provider:
                     service: cmb.user.provider.fosub_bridge

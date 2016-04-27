@@ -43,11 +43,11 @@ class FOSUBUserProvider extends BaseClass
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
         $username = $response->getUsername();
+        $service = $response->getResourceOwner()->getName();
         $user = $this->userManager->findUserBy(array($this->getProperty($response) => $username));
 
         if (null === $user) {
             //when the user is registering
-            $service = $response->getResourceOwner()->getName();
             $setter = 'set' . ucfirst($service);
             $setter_id = $setter . 'Id';
             // create new user here
@@ -57,13 +57,16 @@ class FOSUBUserProvider extends BaseClass
             //modify here with relevant data
             $user->setUsername($response->getRealName());
             $user->setUsernameCanonical($username);
-            $user->setEmail($response->getEmail());
+            //dirty : email may not be shared by Facebook so if it is null, we user username instead
+            $email = $response->getEmail();
+            if($email === null)
+            {
+                $email = $username;
+            }
+            $user->setEmail($email);
             $user->setPassword($username);
             $user->setEnabled(true);
             $this->userManager->updateUser($user);
-        } else {
-            //if user exists - go with the HWIOAuth way
-            $user = parent::loadUserByOAuthUserResponse($response);
         }
 
         return $user;
