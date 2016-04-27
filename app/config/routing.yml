@@ -1,4 +1,32 @@
-lo_l_api:
+#we only need logout from FOSUser
+fos_user_security_logout:
+    path: "/logout"
+    defaults:  { _controller: FOSUserBundle:Security:logout }
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /connect
+
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix:   /connect
+
+#hwi_facebook_login:
+#    path: /login/check-facebook
+
+hwi_google_login:
+    path: /login/check-google
+
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /user
+
+lol_api:
     resource: "@LoLApiBundle/Controller/"
     type:     annotation
     prefix:   /lolapi

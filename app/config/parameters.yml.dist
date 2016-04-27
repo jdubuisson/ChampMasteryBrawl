@@ -17,4 +17,10 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    #LoLAPI key
     dowdow_league_of_legends_api: fake_key_change_it
+
+    #OAuth through google key and secret
+    google_app_id:           yourgoogleappid
+    google_app_secret:       yourgoogleappsecret

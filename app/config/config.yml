@@ -4,6 +4,7 @@ imports:
     - { resource: services.yml }
     - { resource: "@BrawlBundle/Resources/config/services.yml" }
     - { resource: "@LoLApiBundle/Resources/config/services.yml" }
+    - { resource: "@UserBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -33,6 +34,8 @@ framework:
     fragments:       ~
     http_method_override: true
     assets: ~
+    #translator for fosuser
+    translator: ~
 
 # Twig Configuration
 twig:
@@ -68,3 +71,37 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+#fosuser
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: UserBundle\Entity\User
+
+#hwiOauth
+hwi_oauth:
+    # list of names of the firewalls in which this bundle is active, this setting MUST be set
+    firewall_names: [main]
+    resource_owners:
+        #facebook:
+            #type:                facebook
+            #client_id:           <client_id>
+            #client_secret:       <client_secret>
+            #options:
+                #display: popup
+        google:
+            type:                google
+            client_id:           "%google_app_id%"
+            client_secret:       "%google_app_secret%"
+            scope:               "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+
+    fosub:
+        # try 30 times to check if a username is available (foo, foo1, foo2 etc)
+        username_iterations: 30
+
+        # mapping between resource owners (see below) and properties
+        properties:
+            #github: githubID
+            #twitter: twitterID
+            #facebook: facebookID
+            google: googleID
