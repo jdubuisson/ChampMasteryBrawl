@@ -31,7 +31,6 @@
         "hwi/oauth-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "dev-master",
         "mopa/bootstrap-bundle": "dev-master",
-        "twbs/bootstrap": "dev-master",
         "symfony/assetic-bundle": "^2.8"
 
     },

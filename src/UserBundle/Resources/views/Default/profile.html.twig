@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+<div class="container">
+
+    <div class="col-sm-8 col-md-offset-2 text-center">
+        <h1>{{ 'cmb.profile.h1' | trans }}</h1>
+        <p>{{ 'cmb.profile.lorem' | trans }}</p>
+        <p>{{ user.username }}</p>
+    </div>
+</div>
+{% endblock %}

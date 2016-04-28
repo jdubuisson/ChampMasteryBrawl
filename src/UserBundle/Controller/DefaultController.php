@@ -10,8 +10,8 @@ class DefaultController extends Controller
     /**
      * @Route("/")
      */
-    public function indexAction()
+    public function profileAction()
     {
-        return $this->render('UserBundle:Default:index.html.twig');
+        return $this->render('UserBundle:Default:profile.html.twig', ['user' => $this->getUser()]);
     }
 }

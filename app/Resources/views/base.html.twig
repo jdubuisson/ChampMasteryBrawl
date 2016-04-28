@@ -3,16 +3,43 @@
 {# default title #}
 {% block title %}ChampMastery : Brawl{% endblock title %}
 
-{# bootlint : need this meta#}
 {% block head_style %}
+    {# bootlint : need this meta#}
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {# css and fonts#}
+    {% stylesheets '@AppBundle/Resources/public/css/*'%}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+
+    {% stylesheets
+    output='fonts/glyphicons-halflings-regular.ttf'
+    'bundles/app/fonts/glyphicons-halflings-regular.ttf' %}{% endstylesheets %}
+    {% stylesheets
+    output='fonts/glyphicons-halflings-regular.eot'
+    'bundles/app/fonts/glyphicons-halflings-regular.eot' %}{% endstylesheets %}
+    {% stylesheets
+    output='fonts/glyphicons-halflings-regular.svg'
+    'bundles/app/fonts/glyphicons-halflings-regular.svg' %}{% endstylesheets %}
+    {% stylesheets
+    output='fonts/glyphicons-halflings-regular.woff'
+    'bundles/app/fonts/glyphicons-halflings-regular.woff' %}{% endstylesheets %}
+    {% stylesheets
+    output='fonts/glyphicons-halflings-regular.woff2'
+    'bundles/app/fonts/glyphicons-halflings-regular.woff2' %}{% endstylesheets %}
 {% endblock head_style %}
 
-{# bootlint : global js#}
+{# global js#}
 {% block head_script %}
+    {# jquery first for dependency issues#}
     {% javascripts
     '@AppBundle/Resources/public/js/jquery-1.11.2.min.js'
+    '@AppBundle/Resources/public/js/*'
      %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock head_script %}
+
+{% block navbar %}
+    {% include '::navbar.html.twig' %}
+{% endblock navbar %}
+
