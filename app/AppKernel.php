@@ -16,9 +16,11 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Dowdow\LeagueOfLegendsAPIBundle\DowdowLeagueOfLegendsAPIBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
 
             new AppBundle\AppBundle(),
             new BrawlBundle\BrawlBundle(),

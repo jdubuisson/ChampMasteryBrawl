@@ -1,13 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{% extends 'MopaBootstrapBundle::base.html.twig' %}
+
+{# default title #}
+{% block title %}ChampMastery : Brawl{% endblock title %}
+
+{# bootlint : need this meta#}
+{% block head_style %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+{% endblock head_style %}
+
+{# bootlint : global js#}
+{% block head_script %}
+    {% javascripts
+    '@AppBundle/Resources/public/js/jquery-1.11.2.min.js'
+     %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock head_script %}

@@ -29,7 +29,10 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "dowdow/league-of-legends-api-bundle": "dev-master",
         "hwi/oauth-bundle": "dev-master",
-        "friendsofsymfony/user-bundle": "dev-master"
+        "friendsofsymfony/user-bundle": "dev-master",
+        "mopa/bootstrap-bundle": "dev-master",
+        "twbs/bootstrap": "dev-master",
+        "symfony/assetic-bundle": "^2.8"
 
     },
     "require-dev": {
