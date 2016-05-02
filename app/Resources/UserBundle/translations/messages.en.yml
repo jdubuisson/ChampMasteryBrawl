@@ -1,2 +1,4 @@
 cmb.profile.h1: Profile
 cmb.profile.lorem: __cmb.profile.lorem
+cmb.profile.link-summoner: 'What is your Summoner''s name and region ?'
+Linkaccount: 'Link your account'

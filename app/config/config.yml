@@ -2,7 +2,6 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@BrawlBundle/Resources/config/services.yml" }
     - { resource: "@LoLApiBundle/Resources/config/services.yml" }
     - { resource: "@UserBundle/Resources/config/services.yml" }
 
@@ -41,6 +40,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes:
+        - 'bootstrap_3_layout.html.twig'
 
 # Doctrine Configuration
 doctrine:

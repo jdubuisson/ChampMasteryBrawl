@@ -1,4 +1,10 @@
 services:
-     cmb.user.provider.fosub_bridge:
+    cmb.user.provider.fosub_bridge:
         class: UserBundle\Security\FOSUBUserProvider
         arguments: ["@fos_user.user_manager", {facebook: facebookID, google: googleID}]
+
+    cmb.user.form.type.link_summoner:
+        class: UserBundle\Form\Type\LinkSummonerType
+        arguments: ["%activeRegions%"]
+        tags:
+            - { name: form.type }

@@ -11,6 +11,7 @@ parameters:
     dowdow_league_of_legends_api.service_team.class: Dowdow\LeagueOfLegendsAPIBundle\Service\TeamService
     
     dowdow_league_of_legends_api.service_staticchampion.class: LoLApiBundle\Service\StaticChampionService
+    dowdow_league_of_legends_api.service_championmastery.class: LoLApiBundle\Service\ChampionMasteryService
 
 services:
     dowdow_league_of_legends_api.caller_caller:
@@ -45,4 +46,8 @@ services:
 
     dowdow_league_of_legends_api.service_staticchampion:
         class: "%dowdow_league_of_legends_api.service_staticchampion.class%"
+        arguments: ['@dowdow_league_of_legends_api.caller_caller','@service_container']
+
+    dowdow_league_of_legends_api.service_championmastery:
+        class: "%dowdow_league_of_legends_api.service_championmastery.class%"
         arguments: ['@dowdow_league_of_legends_api.caller_caller','@service_container']

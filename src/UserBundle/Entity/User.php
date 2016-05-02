@@ -33,6 +33,51 @@ class User extends BaseUser
     private $facebookID;
 
     /**
+     * @ORM\OneToOne(targetEntity="Dowdow\LeagueOfLegendsAPIBundle\Entity\Summoner")
+     **/
+    private $summoner;
+
+    /**
+     * @return mixed
+     */
+    public function getSummoner()
+    {
+        return $this->summoner;
+    }
+
+    /**
+     * @param mixed $summoner
+     */
+    public function setSummoner($summoner)
+    {
+        $this->summoner = $summoner;
+    }
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="region", type="string", nullable=true)
+     */
+    private $region;
+
+    /**
+     * @return string
+     */
+    public function getRegion()
+    {
+        return $this->region;
+    }
+
+    /**
+     * @param string $region
+     */
+    public function setRegion($region)
+    {
+        $this->region = $region;
+    }
+
+    /**
      * Get id
      *
      * @return integer

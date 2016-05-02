@@ -23,7 +23,6 @@ class AppKernel extends Kernel
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
 
             new AppBundle\AppBundle(),
-            new BrawlBundle\BrawlBundle(),
             new LoLApiBundle\LoLApiBundle(),
             new UserBundle\UserBundle(),
         ];

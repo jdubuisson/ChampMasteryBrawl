@@ -1,13 +1,13 @@
 <?php
 
-namespace BrawlBundle\Command;
+namespace AppBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use BrawlBundle\Entity\StaticChampion;
+use AppBundle\Entity\StaticChampion;
 use Dowdow\LeagueOfLegendsAPIBundle\Constant\Region;
 
 class StaticDataInitCommand extends ContainerAwareCommand
@@ -28,7 +28,7 @@ class StaticDataInitCommand extends ContainerAwareCommand
         $output->writeln('start import for region '.$region);
         $em = $this->getContainer()->get('doctrine')->getManager();
         foreach ($data->data as $key => $staticChampion) {
-            $old = $em->getRepository('BrawlBundle:StaticChampion')->findOneByChampionKey($staticChampion->key);
+            $old = $em->getRepository('AppBundle:StaticChampion')->findOneByChampionKey($staticChampion->key);
             if ($old) {
                 $em->remove($old);
             }

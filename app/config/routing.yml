@@ -31,11 +31,6 @@ lol_api:
     type:     annotation
     prefix:   /lolapi
 
-brawl:
-    resource: "@BrawlBundle/Controller/"
-    type:     annotation
-    prefix:   /brawl
-
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

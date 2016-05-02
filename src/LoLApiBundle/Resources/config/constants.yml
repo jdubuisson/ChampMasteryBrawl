@@ -1,8 +1,37 @@
 parameters:
+    activeRegions:
+        br: br
+        eune: eune
+        euw: euw
+        jp: jp
+        kr: kr
+        lan: lan
+        las: las
+        na: na
+        oce: oce
+        tr: tr
+        ru: ru
+
+    locationIds:
+        br: BR1
+        eune: EUN1
+        euw: EUW1
+        jp: JP
+        kr: KR
+        lan: LA1
+        las: LA2
+        na: NA1
+        oce: OC1
+        tr: TR1
+        ru: RU
+        pbe: PBE1
+        global: GL
+
     urls:
         br: https://br.api.pvp.net
         eune: https://eune.api.pvp.net
         euw: https://euw.api.pvp.net
+        jp: https://jp.api.pvp.net
         kr: https://kr.api.pvp.net
         las: https://las.api.pvp.net
         lan: https://lan.api.pvp.net
@@ -10,6 +39,7 @@ parameters:
         oce: https://oce.api.pvp.net
         tr: https://tr.api.pvp.net
         ru: https://ru.api.pvp.net
+        pbe: https://pbe.api.pvp.net
         global: https://global.api.pvp.net
         globaleuw: https://global.api.pvp.net
 
@@ -63,3 +93,6 @@ parameters:
         team:
             teamBySummonerIds: /api/lol/{region}/v2.4/team/by-summoner/{summonerIds}
             teamByTeamIds: /api/lol/{region}/v2.4/team/{teamIds}
+
+        championmastery:
+            championMasteryByPlayerId: /championmastery/location/{locationId}/player/{playerId}/champions

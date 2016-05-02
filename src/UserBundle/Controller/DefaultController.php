@@ -12,6 +12,10 @@ class DefaultController extends Controller
      */
     public function profileAction()
     {
-        return $this->render('UserBundle:Default:profile.html.twig', ['user' => $this->getUser()]);
+        $user = $this->getUser();
+        if ($user->getSummoner() == null) {
+            return $this->redirectToRoute('user_summoner_link');
+        }
+        return $this->render('UserBundle:Default:profile.html.twig', ['user' => $user]);
     }
 }

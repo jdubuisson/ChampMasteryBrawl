@@ -48,7 +48,12 @@ class Caller extends DowDowCaller
         if ($param == null) {
             $param = array();
         }
-        $url = $this->container->getParameter('urls')[$region];
+        $urls = $this->container->getParameter('urls');
+        $url = $urls['global'];
+        if(array_key_exists($region, $urls))
+        {
+            $url = $urls[$region];
+        }
         $request = str_replace('{region}', str_replace('global', '', $region), $request);
         $key = $this->container->getParameter('key');
         $param['api_key'] = $key;
