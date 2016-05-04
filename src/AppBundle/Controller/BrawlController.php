@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Brawl;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -38,6 +39,28 @@ class BrawlController extends Controller
     {
         $user = $this->getUser();
         $brawl = $this->get('cmb.brawl_service')->computeBrawl($user, $defendingUser);
-        return $this->render('AppBundle:Brawl:challenge.html.twig', ['brawl' => $brawl]);
+        return $this->redirectToRoute('app_brawl_viewbrawl', ['id' => $brawl->getId()]);
+    }
+
+    /**
+     * @Route("/brawl/{id}")
+     * @ParamConverter("post", class="AppBundle:Brawl")
+     */
+    public function viewBrawlAction(Request $request, Brawl $brawl)
+    {
+        $em = $this->get('doctrine.orm.entity_manager');
+        $staticChampionRepository = $em->getRepository('AppBundle:StaticChampion');
+        $resultsForDisplay = array();
+        for ($round = 1; $round <= 5; $round++) {
+            $functionGetAtk = 'getAttackerChampion' . $round;
+            $functionGetDef = 'getDefenderChampion' . $round;
+            $functionGetVictor = 'getVictoriousChampion' . $round;
+
+            $attacker = $staticChampionRepository->findOneByChampionId($brawl->$functionGetAtk());
+            $defender = $staticChampionRepository->findOneByChampionId($brawl->$functionGetDef());
+            $resultsForDisplay[] = ['attacker' => $attacker->getChampionKey(), 'defender' => $defender->getChampionKey(), 'victor' => $brawl->$functionGetVictor()];
+        }
+
+        return $this->render('AppBundle:Brawl:brawl.html.twig', ['brawl' => $brawl, 'resultsForDisplay' => $resultsForDisplay]);
     }
 }

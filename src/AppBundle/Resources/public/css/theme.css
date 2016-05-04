@@ -24,3 +24,11 @@ body {
 #fp-nav ul li a span, .fp-slidesNav ul li a span {
     background-color: #009871;
 }
+
+.brawl td>div {
+    padding: 15px;
+}
+
+.brawl img {
+    margin: 0 auto;
+}

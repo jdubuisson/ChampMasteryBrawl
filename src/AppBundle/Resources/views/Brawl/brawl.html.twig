@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-8 col-md-offset-2 text-center">
+                <h1>{{ 'cmb.brawl.result' | trans }}</h1>
+            </div>
+
+            <div class="col-sm-8 col-md-offset-2 text-center">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'cmb.brawl.overview' | trans }}</h2>
+                    </div>
+
+                    <div class="panel-body row">
+                            <div class="col-sm-6">
+                                <button type="button" class="btn {% if brawl.victoriousUser == 'attacker' %}btn-success{% else %}btn-danger{% endif %}">{{ brawl.attacker.username }}</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn {% if brawl.victoriousUser == 'attacker' %}btn-danger{% else %}btn-success{% endif %}">{{ brawl.defender.username }}</button>
+                            </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="brawl table">
+                            {% for row in resultsForDisplay %}
+                                {{ include('AppBundle:Brawl:champion_row.html.twig', {'result':row}) }}
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

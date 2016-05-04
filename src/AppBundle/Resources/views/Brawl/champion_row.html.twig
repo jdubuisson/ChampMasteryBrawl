@@ -1,0 +1,15 @@
+<tr>
+    <td>
+        <div class="{% if row.victor == 'attacker' %}bg-success{% else %}bg-danger{% endif %} img-rounded">
+            <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/{{ row.attacker }}.png"
+                 class="img-responsive" alt="{{ row.attacker }}">
+        </div>
+    </td>
+    <td></td>
+    <td>
+        <div class="{% if row.victor != 'attacker' %}bg-success{% else %}bg-danger{% endif %} img-rounded">
+            <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/{{ row.defender }}.png"
+                 class="img-responsive" alt="{{ row.defender }}">
+        </div>
+    </td>
+</tr>
