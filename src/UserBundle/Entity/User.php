@@ -78,6 +78,29 @@ class User extends BaseUser
     }
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="lastMasteryUpdate", type="datetime", nullable=true)
+     */
+    private $lastMasteryUpdate;
+
+    /**
+     * @return \DateTime
+     */
+    public function getLastMasteryUpdate()
+    {
+        return $this->lastMasteryUpdate;
+    }
+
+    /**
+     * @param \DateTime $lastMasteryUpdate
+     */
+    public function setLastMasteryUpdate($lastMasteryUpdate)
+    {
+        $this->lastMasteryUpdate = $lastMasteryUpdate;
+    }
+
+    /**
      * Get id
      *
      * @return integer
