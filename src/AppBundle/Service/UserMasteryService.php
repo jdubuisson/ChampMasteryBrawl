@@ -32,6 +32,7 @@ class UserMasteryService
             $region = $user->getRegion();
             $results = $this->masteryService->getChampionMasteryForSummonerId($summoner->getId(), $region);
             $em = $this->doctrine->getManager();
+            $slot = 1;
             foreach ($results as $championMastery) {
                 $champMasteryObject = $em->getRepository('AppBundle:ChampionMastery')->findBySummonerAndChampionId($summoner, $championMastery->championId);
                 if ($champMasteryObject == null) {
@@ -59,6 +60,12 @@ class UserMasteryService
                 }
                 $champMasteryObject->setSummoner($summoner);
                 $em->persist($champMasteryObject);
+                if($slot <=5)
+                {
+                    $functionName = 'setChampion'.$slot;
+                    $user->$functionName($championMastery->championId);
+                    $slot++;
+                }
             }
             $user->setLastMasteryUpdate(new \DateTime());
             $em->flush();

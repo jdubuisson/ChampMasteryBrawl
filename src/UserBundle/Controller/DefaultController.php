@@ -15,8 +15,12 @@ class DefaultController extends Controller
         $user = $this->getUser();
         if ($user->getSummoner() == null) {
             return $this->redirectToRoute('user_summoner_link');
+        } else {
+            $this->get('cmb.user_mastery_service')->updateUserMasteryData($user);
         }
-        $this->get('cmb.user_mastery_service')->updateUserMasteryData($user);
-        return $this->render('UserBundle:Default:profile.html.twig', ['user' => $user]);
+        $em = $this->getDoctrine()->getEntityManager();
+        $masteryData = $em->getRepository('AppBundle:ChampionMastery')->findTopBySummoner($user->getSummoner());
+
+        return $this->render('UserBundle:Default:profile.html.twig', ['user' => $user, 'masteryData' => $masteryData]);
     }
 }

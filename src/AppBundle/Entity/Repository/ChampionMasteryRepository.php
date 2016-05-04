@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class ChampionMasteryRepository extends EntityRepository
 {
+
     public function findBySummonerAndChampionId($summoner, $championId)
     {
         $query = $this->createQueryBuilder('cm')
@@ -20,5 +21,17 @@ class ChampionMasteryRepository extends EntityRepository
             ->setParameter('championId', $championId)
             ->getQuery();
         return $query->getOneOrNullResult();
+    }
+
+    public function findTopBySummoner($summoner, $limit = null)
+    {
+        $query = $this->createQueryBuilder('cm')
+            ->where('cm.summoner = :summoner')
+            ->setParameter('summoner', $summoner)
+            ->orderBy('cm.championPoints', 'DESC')->getQuery();
+        if ($limit != null) {
+            $query->setMaxResults($limit);
+        }
+        return $query->getResult();
     }
 }

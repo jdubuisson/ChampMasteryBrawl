@@ -1,13 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block container %}
-<div class="container">
+    <div class="container">
 
-    <div class="col-sm-8 col-md-offset-2 text-center">
-        <h1>{{ 'cmb.profile.h1' | trans }}</h1>
-        <p>{{ 'cmb.profile.lorem' | trans }}</p>
-        <p>{{ user.username }}</p>
-        <p>{{ user.summoner.name }}</p>
+        <div class="col-sm-8 col-md-offset-2 text-center">
+            <h1>{{ 'cmb.profile.h1' | trans }}</h1>
+            <p>{{ 'cmb.profile.lorem' | trans }}</p>
+            <p>{{ user.username }}</p>
+            <p>{{ user.summoner.name }}</p>
+        </div>
+
+        <div class="col-sm-8 col-md-offset-2 text-center">
+            <h2>{{ 'cmb.user.top_champions' | trans }}</h2>
+
+            <p>{{ 'cmb.profile.lorem' | trans }}</p>
+            {% for data in masteryData %}
+                <p>{{ data.championId }} : {{ data.championPoints }}</p>
+            {% endfor %}
+        </div>
+
+        <div class="col-sm-8 col-md-offset-2 text-center">
+            <h2>{{ 'cmb.user.champion_team' | trans }}</h2>
+            <p>{{ 'cmb.profile.lorem' | trans }}</p>
+            <p>{{ user.champion1 }}</p>
+            <p>{{ user.champion2 }}</p>
+            <p>{{ user.champion3 }}</p>
+            <p>{{ user.champion4 }}</p>
+            <p>{{ user.champion5 }}</p>
+        </div>
     </div>
-</div>
 {% endblock %}
