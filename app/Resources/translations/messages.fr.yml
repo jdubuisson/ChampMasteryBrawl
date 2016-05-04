@@ -8,3 +8,5 @@ cmb.dummy_link: __cmb.dummy_link
 cmb.profile: __cmb.profile
 cmb.list.opponents: __cmb.list.opponents
 cmb.login_or_register: __cmb.login_or_register
+cmb.assaults: __cmb.assaults
+cmb.defenses: __cmb.defenses

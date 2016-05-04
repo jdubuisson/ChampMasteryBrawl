@@ -6,3 +6,10 @@ cmb.summoner.name: 'Summoner name'
 cmb.summoner.challenge: 'Challenge this user !'
 cmb.brawl.result: 'Brawl results'
 cmb.brawl.overview: Overview
+cmb.defenses: 'My defenses'
+cmb.defenses.description: 'This is the list of all the brawls someone started against you.'
+cmb.brawl.date: Date
+cmb.brawl.view: Details
+cmb.assaults: 'My assaults'
+cmb.assaults.description: 'This is the list of all the brawls you started.'
+cmb.user.name: Username

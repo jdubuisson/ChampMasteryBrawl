@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-offset-2 text-center">
+                <h1>{{ 'cmb.defenses' | trans }}</h1>
+
+                <p>{{ 'cmb.defenses.description' | trans }}</p>
+            </div>
+
+            {{ include('AppBundle:Brawl:brawl_list.html.twig', {'pagination':pagination}) }}
+
+        </div>
+    </div>
+{% endblock %}

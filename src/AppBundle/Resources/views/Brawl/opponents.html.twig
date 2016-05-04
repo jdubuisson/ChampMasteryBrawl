@@ -9,10 +9,11 @@
                 <p>{{ 'cmb.opponents.description' | trans }}</p>
             </div>
 
-            <div class="col-sm-8 col-md-offset-2 text-center">
+            <div class="col-sm-8 col-md-offset-2 text-center table-responsive">
                 <table class="table table-hover">
                     <tr>
                         {# sorting of properties based on query components #}
+                        <th></th>
                         <th class="text-center">{{ knp_pagination_sortable(pagination, 'Username', 'a.username') }}</th>
                         <th class="text-center">{{ 'cmb.summoner.name' | trans }}</th>
                         {# <th class="text-center">{{ 'cmb.summoner.challenge' | trans }}</th> #]
@@ -21,11 +22,11 @@
                     {# table body #}
                         {% for user in pagination %}
                     <tr {% if loop.index is odd %}class="color"{% endif %}>
-                        <td>{{ user.username }}</td>
-                        <td>{{ user.summoner.name }}</td>
                         <td>
                             <a class="btn btn-default btn-sm" href="{{ path('app_brawl_challenge', {'id':user.id}) }}" role="button">{{ 'cmb.summoner.challenge' | trans }}</a>
                         </td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.summoner.name }}</td>
                     </tr>
                     {% endfor %}
                 </table>

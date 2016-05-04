@@ -1,0 +1,36 @@
+<div class="col-sm-8 col-md-offset-2 text-center table-responsive">
+    <table class="table table-hover">
+        <tr>
+            {# sorting of properties based on query components #}
+            <th></th>
+            <th class="text-center">{{ 'cmb.user.name' | trans }}</th>
+            <th class="text-center">{{ 'cmb.user.name' | trans }}</th>
+            <th class="text-center hidden-xs">{{ 'cmb.brawl.date' | trans }}</th>
+            {# <th class="text-center">{{ 'cmb.summoner.challenge' | trans }}</th> #]
+        </tr>
+
+        {# table body #}
+            {% for brawl in pagination %}
+        <tr class="{% if loop.index is odd %}color{% endif %}">
+            <td>
+                <a class="btn btn-default btn-sm" href="{{ path('app_brawl_viewbrawl', {'id':brawl.id}) }}"
+                   role="button">{{ 'cmb.brawl.view' | trans }}</a>
+            </td>
+            <td>
+                <button type="button"
+                        class="btn btn-sm {% if brawl.victoriousUser == 'attacker' %}btn-success{% else %}btn-danger{% endif %}">{{ brawl.attacker.username }}</button>
+            </td>
+            <td>
+                <button type="button"
+                        class="btn btn-sm {% if brawl.victoriousUser != 'attacker' %}btn-success{% else %}btn-danger{% endif %}">{{ brawl.defender.username }}</button>
+            </td>
+            <td class="hidden-xs">{{ brawl.date | date('d/m/Y h:i') }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {# display navigation #}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+</div>

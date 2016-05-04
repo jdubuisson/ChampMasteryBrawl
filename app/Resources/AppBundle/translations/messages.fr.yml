@@ -6,3 +6,10 @@ cmb.summoner.name: __cmb.summoner.name
 cmb.summoner.challenge: __cmb.summoner.challenge
 cmb.brawl.result: __cmb.brawl.result
 cmb.brawl.overview: __cmb.brawl.overview
+cmb.defenses: __cmb.defenses
+cmb.defenses.description: __cmb.defenses.description
+cmb.brawl.date: __cmb.brawl.date
+cmb.brawl.view: __cmb.brawl.view
+cmb.assaults: __cmb.assaults
+cmb.assaults.description: __cmb.assaults.description
+cmb.user.name: __cmb.user.name

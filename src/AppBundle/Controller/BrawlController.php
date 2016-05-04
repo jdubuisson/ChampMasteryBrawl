@@ -16,7 +16,6 @@ class BrawlController extends Controller
      */
     public function opponentsAction(Request $request)
     {
-
         $em = $this->get('doctrine.orm.entity_manager');
         $dql = "SELECT a FROM UserBundle:User a WHERE a.id <> " . $this->getUser()->getId();
         $query = $em->createQuery($dql);
@@ -26,7 +25,6 @@ class BrawlController extends Controller
             $request->query->getInt('page', 1)/*page number*/,
             10/*limit per page*/
         );
-
 
         return $this->render('AppBundle:Brawl:opponents.html.twig', ['pagination' => $pagination]);
     }
@@ -62,5 +60,41 @@ class BrawlController extends Controller
         }
 
         return $this->render('AppBundle:Brawl:brawl.html.twig', ['brawl' => $brawl, 'resultsForDisplay' => $resultsForDisplay]);
+    }
+
+    /**
+     * @Route("/my-assaults")
+     */
+    public function listAssaultsAction(Request $request)
+    {
+
+        $em = $this->get('doctrine.orm.entity_manager');
+        $query = $em->getRepository('AppBundle:Brawl')->generateAssaultsQuery($this->getUser());
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+
+        return $this->render('AppBundle:Brawl:assaults.html.twig', ['pagination' => $pagination]);
+    }
+
+    /**
+     * @Route("/my-defenses")
+     */
+    public function listDefensesAction(Request $request)
+    {
+
+        $em = $this->get('doctrine.orm.entity_manager');
+        $query = $em->getRepository('AppBundle:Brawl')->generateDefensesQuery($this->getUser());
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+
+        return $this->render('AppBundle:Brawl:defenses.html.twig', ['pagination' => $pagination]);
     }
 }

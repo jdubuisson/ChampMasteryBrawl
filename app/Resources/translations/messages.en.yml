@@ -8,3 +8,5 @@ cmb.dummy_link: __cmb.dummy_link
 cmb.profile: 'My profile'
 cmb.list.opponents: 'Find an opponent'
 cmb.login_or_register: 'Login or register'
+cmb.assaults: 'My assaults'
+cmb.defenses: 'My defenses'
