@@ -31,7 +31,8 @@
         "hwi/oauth-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "dev-master",
         "mopa/bootstrap-bundle": "dev-master",
-        "symfony/assetic-bundle": "^2.8"
+        "symfony/assetic-bundle": "^2.8",
+        "knplabs/knp-paginator-bundle": "^2.5"
 
     },
     "require-dev": {
