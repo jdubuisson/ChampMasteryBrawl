@@ -5,3 +5,6 @@ cmb.home.h2_one: __cmb.home.h2_one
 cmb.home.lorem: __cmb.home.lorem
 cmb.website.name: __cmb.website.name
 cmb.dummy_link: __cmb.dummy_link
+cmb.profile: __cmb.profile
+cmb.list.opponents: __cmb.list.opponents
+cmb.login_or_register: __cmb.login_or_register

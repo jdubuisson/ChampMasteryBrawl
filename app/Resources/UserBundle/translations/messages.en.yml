@@ -2,3 +2,6 @@ cmb.profile: Profile
 cmb.profile.lorem: __cmb.profile.lorem
 cmb.profile.link-summoner: 'What is your Summoner''s name and region ?'
 Linkaccount: 'Link your account'
+cmb.user.top_champions: 'Your top champions'
+cmb.user.champion_team: 'Your team of champions'
+cmb.profile.h1: Profile

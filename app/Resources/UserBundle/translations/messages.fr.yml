@@ -2,3 +2,6 @@ cmb.profile: Profil
 cmb.profile.lorem: __cmb.profile.lorem
 cmb.profile.link-summoner: __cmb.profile.link-summoner
 Linkaccount: 'Link your account'
+cmb.user.top_champions: __cmb.user.top_champions
+cmb.user.champion_team: __cmb.user.champion_team
+cmb.profile.h1: __cmb.profile.h1

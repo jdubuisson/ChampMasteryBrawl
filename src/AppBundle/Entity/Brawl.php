@@ -22,12 +22,12 @@ class Brawl
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
      */
     private $attacker;
 
     /**
-     * @ORM\OneToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
      */
     private $defender;
 

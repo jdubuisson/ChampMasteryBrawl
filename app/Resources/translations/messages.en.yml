@@ -3,5 +3,8 @@ cmb.home.description: 'Here you can battle it out with your friends, using your 
 cmb.home.scroll_to_see_more: 'Scroll down to learn more'
 cmb.home.h2_one: 'Your mastery'
 cmb.home.lorem: __cmb.home.lorem
-cmb.website.name: "ChampMastery : Brawl"
+cmb.website.name: 'ChampMastery : Brawl'
 cmb.dummy_link: __cmb.dummy_link
+cmb.profile: 'My profile'
+cmb.list.opponents: 'Find an opponent'
+cmb.login_or_register: 'Login or register'
