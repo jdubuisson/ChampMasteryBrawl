@@ -17,7 +17,7 @@ class BrawlController extends Controller
     {
 
         $em = $this->get('doctrine.orm.entity_manager');
-        $dql = "SELECT a FROM UserBundle:User a WHERE a.id <> " .$this->getUser()->getId();
+        $dql = "SELECT a FROM UserBundle:User a WHERE a.id <> " . $this->getUser()->getId();
         $query = $em->createQuery($dql);
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
@@ -27,7 +27,7 @@ class BrawlController extends Controller
         );
 
 
-        return $this->render('AppBundle:Brawl:opponents.html.twig', ['pagination'=>$pagination]);
+        return $this->render('AppBundle:Brawl:opponents.html.twig', ['pagination' => $pagination]);
     }
 
     /**
@@ -36,10 +36,8 @@ class BrawlController extends Controller
      */
     public function challengeAction(Request $request, User $defendingUser)
     {
-
-       $user = $this->getUser();
-
-
-        return $this->render('AppBundle:Brawl:challenge.html.twig', ['attackingUser'=>$user, 'defendingUser'=>$defendingUser]);
+        $user = $this->getUser();
+        $brawl = $this->get('cmb.brawl_service')->computeBrawl($user, $defendingUser);
+        return $this->render('AppBundle:Brawl:challenge.html.twig', ['brawl' => $brawl]);
     }
 }

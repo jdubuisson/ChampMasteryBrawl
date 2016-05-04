@@ -34,4 +34,21 @@ class ChampionMasteryRepository extends EntityRepository
         }
         return $query->getResult();
     }
+
+    public function findPointsBySummonerAndChampionId($summoner, $championId)
+    {
+        $query = $this->createQueryBuilder('cm')
+            ->where('cm.summoner = :summoner')->andWhere('cm.championId = :championId')
+            ->setParameter('summoner', $summoner)
+            ->setParameter('championId', $championId)
+            ->getQuery();
+        $result = $query->getOneOrNullResult();
+        if($result == null)
+        {
+            $points=0;
+        } else {
+            $points = $result->getChampionPoints();
+        }
+        return $points;
+    }
 }
