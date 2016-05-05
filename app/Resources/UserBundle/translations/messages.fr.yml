@@ -11,3 +11,7 @@ cmb.champion: __cmb.champion
 cmb.champion.mastery: __cmb.champion.mastery
 cmb.link.lorem: __cmb.link.lorem
 cmb.mastery_points.short: __cmb.mastery_points.short
+cmb.brawl.totalAssaults: 'Number of assaults'
+cmb.brawl.successfulAssaults: 'Number of assaults you won'
+cmb.brawl.totalDefenses: 'Number of defenses'
+cmb.brawl.successfulDefenses: 'Number of defenses you won'
