@@ -6,7 +6,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="UserBundle\Entity\Repository\UserRepository")
  * @ORM\Table(name="User")
  */
 class User extends BaseUser
@@ -33,7 +33,7 @@ class User extends BaseUser
     private $facebookID;
 
     /**
-     * @ORM\OneToOne(targetEntity="Dowdow\LeagueOfLegendsAPIBundle\Entity\Summoner")
+     * @ORM\ManyToOne(targetEntity="Dowdow\LeagueOfLegendsAPIBundle\Entity\Summoner")
      **/
     private $summoner;
 

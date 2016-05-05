@@ -16,9 +16,8 @@ class BrawlController extends Controller
      */
     public function opponentsAction(Request $request)
     {
-        $em = $this->get('doctrine.orm.entity_manager');
-        $dql = "SELECT a FROM UserBundle:User a WHERE a.id <> " . $this->getUser()->getId();
-        $query = $em->createQuery($dql);
+        $doctrine = $this->getDoctrine();
+        $query = $doctrine->getRepository('UserBundle:User')->generateOpponentsQuery($this->getUser());
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
@@ -56,7 +55,17 @@ class BrawlController extends Controller
 
             $attacker = $staticChampionRepository->findOneByChampionId($brawl->$functionGetAtk());
             $defender = $staticChampionRepository->findOneByChampionId($brawl->$functionGetDef());
-            $resultsForDisplay[] = ['attacker' => $attacker->getChampionKey(), 'defender' => $defender->getChampionKey(), 'victor' => $brawl->$functionGetVictor()];
+            if ($attacker == null) {
+                $attackerKey = null;
+            } else {
+                $attackerKey = $attacker->getChampionKey();
+            }
+            if ($defender == null) {
+                $defenderKey = null;
+            } else {
+                $defenderKey = $defender->getChampionKey();
+            }
+            $resultsForDisplay[] = ['attacker' => $attackerKey, 'defender' => $defenderKey, 'victor' => $brawl->$functionGetVictor()];
         }
 
         return $this->render('AppBundle:Brawl:brawl.html.twig', ['brawl' => $brawl, 'resultsForDisplay' => $resultsForDisplay]);

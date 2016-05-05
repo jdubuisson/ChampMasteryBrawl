@@ -5,18 +5,22 @@
             <th class="text-center">{{ 'cmb.champion.mastery'| trans }}</th>
         <tr>
             {% for row in teamDetails %}
+            {% if row.championData.championKey is defined %}
         <tr>
             <td>
                 <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/{{ row.championData.championKey }}.png"
                      class="img-responsive img-rounded"
                      alt="{{ row.championData.championName }}">
+
             </td>
             {% for data in masteryData %}
                 {% if data.championId == row.championData.championId %}
-                    <td>{{ row.championData.championName }} : {{ data.championPoints }} {{ 'cmb.mastery_points.short' | trans }}</td>
+                    <td>{{ row.championData.championName }}
+                        : {{ data.championPoints }} {{ 'cmb.mastery_points.short' | trans }}</td>
                 {% endif %}
             {% endfor %}
         <tr>
+            {% endif %}
             {% endfor %}
     </table>
 </div>

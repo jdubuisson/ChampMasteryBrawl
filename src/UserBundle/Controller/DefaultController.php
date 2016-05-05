@@ -33,7 +33,11 @@ class DefaultController extends Controller
         $teamDetails = array();
         for ($round = 1; $round <= 5; $round++) {
             $functionGetChampion = 'getChampion' . $round;
-            $champion = $staticChampions[$user->$functionGetChampion()];
+            if ($user->$functionGetChampion() == null) {
+                $champion = null;
+            } else {
+                $champion = $staticChampions[$user->$functionGetChampion()];
+            }
             $teamDetails[$round] = ['championData' => $champion];
         }
 
