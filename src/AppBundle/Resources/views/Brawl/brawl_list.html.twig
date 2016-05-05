@@ -24,7 +24,7 @@
                 <button type="button"
                         class="btn btn-sm {% if brawl.victoriousUser != 'attacker' %}btn-success{% else %}btn-danger{% endif %}">{{ brawl.defender.username }}</button>
             </td>
-            <td class="hidden-xs">{{ brawl.date | date('d/m/Y h:i') }}</td>
+            <td class="hidden-xs">{{ brawl.date | date('d/m/Y H:i') }}</td>
         </tr>
         {% endfor %}
     </table>
