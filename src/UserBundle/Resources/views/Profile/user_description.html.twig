@@ -1,0 +1,19 @@
+{# requires activated tooltips #}
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <tr>
+            <td>{{ 'cmb.user.name' | trans }}</td>
+            <td>{{ user.username }}</td>
+        </tr>
+        <tr>
+            <td>{{ 'cmb.summoner.name' | trans }}</td>
+            <td>{{ user.summoner.name }}</td>
+        </tr>
+        {% for key, value in stats %}
+            <tr>
+                <td>{{ ('cmb.brawl.'~key) | trans }}</td>
+                <td>{{ value }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>

@@ -15,3 +15,10 @@ cmb.brawl.totalAssaults: 'Nombre d''assauts'
 cmb.brawl.successfulAssaults: 'Nombre d''assauts gagnés'
 cmb.brawl.totalDefenses: 'Nombre de défenses'
 cmb.brawl.successfulDefenses: 'Nombre de défenses gagnées'
+cmb.mastery_points.explanations: __cmb.mastery_points.explanations
+cmb.assaults.explanations: __cmb.assaults.explanations
+cmb.defenses.explanations: __cmb.defenses.explanations
+cmb.list.opponents: __cmb.list.opponents
+cmb.defenses.button: __cmb.defenses.button
+cmb.assaults.button: __cmb.assaults.button
+cmb.share_profile.button: __cmb.share_profile.button

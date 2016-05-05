@@ -40,7 +40,7 @@ class DefaultController extends Controller
         //stats
         $stats = $doctrine->getRepository('AppBundle:Brawl')->getStatsForUser($user);
 
-        return $this->render('UserBundle:Default:profile.html.twig',
+        return $this->render('UserBundle:Profile:profile.html.twig',
             [
                 'user' => $user,
                 'masteryData' => $masteryData,

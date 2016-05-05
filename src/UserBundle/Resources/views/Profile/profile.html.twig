@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h1>{{ 'cmb.profile' | trans }}</h1>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'cmb.profile.summoner' | trans }}</h2>
+                    </div>
+                    <div class="panel-body row">
+                        <div class="col-sm-6">
+                            {{ include('UserBundle:Profile:user_description.html.twig', {'user':user, 'stats':stats}) }}
+
+                            <div class="well well-sm">{{ 'cmb.mastery_points.explanations' | trans }}</div>
+
+                            <a class="btn btn-block btn-primary" href="{{ path('app_brawl_opponents') }}" role="button">{{ 'cmb.list.opponents' | trans }}</a>
+                            <a data-toggle="tooltip" title="{{ 'cmb.defenses.explanations' | trans }}" class="btn btn-block btn-primary" href="{{ path('app_brawl_listdefenses') }}" role="button">{{ 'cmb.defenses.button' | trans }}</a>
+                            <a data-toggle="tooltip" title="{{ 'cmb.assaults.explanations' | trans }}" class="btn btn-block btn-primary" href="{{ path('app_brawl_listassaults') }}" role="button">{{ 'cmb.assaults.button' | trans }}</a>
+                            <a class="btn btn-block btn-primary" href="#" role="button">{{ 'cmb.share_profile.button' | trans }}</a>
+                        </div>
+                        <div class="col-sm-6">
+                            {{ include('UserBundle:Default:team.html.twig', {'teamDetails':teamDetails, 'masteryData':masteryData}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'cmb.user.top_champions' | trans }}</h2>
+                    </div>
+                    <div class="panel-body row champions">
+                        {% for data in masteryData %}
+                            <div class="col-xs-6 col-sm-4 col-md-3 text-center well">
+                                <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/{{ staticChampions[ data.championId].championKey }}.png"
+                                     class="img-responsive img-rounded"
+                                     alt="{{ staticChampions[ data.championId].championName }}">
+                                <span>{{ data.championPoints }} {{ 'cmb.mastery_points.short' | trans }}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body_end %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+{% endblock body_end %}
