@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Brawl;
+use AppBundle\Form\Type\FilterOpponentsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -17,7 +18,11 @@ class BrawlController extends Controller
     public function opponentsAction(Request $request)
     {
         $doctrine = $this->getDoctrine();
-        $query = $doctrine->getRepository('UserBundle:User')->generateOpponentsQuery($this->getUser());
+        //
+        $form =  $this->createForm(FilterOpponentsType::class);
+        $form->handleRequest($request);
+        $data=$form->getData();
+        $query = $doctrine->getRepository('UserBundle:User')->generateOpponentsQuery($this->getUser(), $data);
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
@@ -25,7 +30,7 @@ class BrawlController extends Controller
             10/*limit per page*/
         );
 
-        return $this->render('AppBundle:Brawl:opponents.html.twig', ['pagination' => $pagination]);
+        return $this->render('AppBundle:Brawl:opponents.html.twig', ['pagination' => $pagination, 'form' => $form->createView(),]);
     }
 
     /**

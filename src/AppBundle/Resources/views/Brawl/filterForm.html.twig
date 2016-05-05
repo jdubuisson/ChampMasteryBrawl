@@ -1,0 +1,14 @@
+<div class="well row">
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    <div class="col-sm-5">
+        {{ form_row(form.nameFilter) }}
+    </div>
+    <div class="col-sm-5">
+        {{ form_row(form.region) }}
+    </div>
+    <div class="col-sm-2" style="padding-top:20px">
+        {{ form_rest(form) }}
+    </div>
+    {{ form_end(form) }}
+</div>

@@ -2,6 +2,14 @@ services:
     cmb.user_mastery_service:
         class: AppBundle\Service\UserMasteryService
         arguments: ['@dowdow_league_of_legends_api.service_championmastery','@doctrine']
+
     cmb.brawl_service:
         class: AppBundle\Service\BrawlService
         arguments: ['@doctrine']
+
+
+    cmb.form.type.filter_opponents:
+        class: AppBundle\Form\Type\FilterOpponentsType
+        arguments: ["%activeRegions%"]
+        tags:
+            - { name: form.type }

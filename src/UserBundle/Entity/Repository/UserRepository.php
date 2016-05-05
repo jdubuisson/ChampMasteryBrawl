@@ -11,13 +11,28 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
-    public function generateOpponentsQuery($user, $limit = null)
+    public function generateOpponentsQuery($user, $filters = null, $limit = null)
     {
-        $query = $query = $this->createQueryBuilder('u')
+
+        $queryBuilder = $this->createQueryBuilder('u')
             ->where('u.id <> :userId')
             ->andWhere('u.summoner is not null')
             ->setParameter('userId', $user->getId())
-            ->orderBy('u.lastMasteryUpdate', 'DESC')->getQuery();
+            ->orderBy('u.lastMasteryUpdate', 'DESC');
+
+        if (is_array($filters)) {
+            if (array_key_exists('nameFilter', $filters) && $filters['nameFilter'] != null) {
+                $queryBuilder
+                    ->innerJoin('u.summoner', 'summoner')
+                    ->andWhere('summoner.name like :nameFilter OR u.username like :nameFilter')
+                    ->setParameter('nameFilter', '%'.$filters['nameFilter'].'%');
+            }
+            if (array_key_exists('region', $filters) && $filters['region'] != null && $filters['region'] != 'any') {
+                $queryBuilder->andWhere('u.region = :region')
+                    ->setParameter('region', $filters['region']);
+            }
+        }
+        $query = $queryBuilder->getQuery();
         if ($limit != null) {
             $query->setMaxResults($limit);
         }

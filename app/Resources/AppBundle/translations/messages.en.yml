@@ -15,4 +15,5 @@ cmb.assaults.description: 'This is the list of all the brawls you started.'
 cmb.user.name: Username
 cmb.brawl.attacker: Attacker
 cmb.brawl.defender: Defender
+cmb.region: Region
 
