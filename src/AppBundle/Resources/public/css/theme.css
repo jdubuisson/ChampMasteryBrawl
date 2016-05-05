@@ -40,3 +40,20 @@ body {
 .tooltip + .btn-block {
     margin-top: 5px;
 }
+
+.clickable-row:hover {
+    cursor: pointer;
+}
+
+.brawl-details {
+    border-radius: 6px;
+    padding: 6px;
+}
+
+.brawl-details>.well {
+    margin-bottom: 6px;
+}
+
+.brawl-details>.well+.well {
+    margin-bottom: 0;
+}

@@ -5,7 +5,9 @@
         <div class="row">
 
             <div class="col-md-8 col-md-offset-2 text-center">
-                <h1>{{ 'cmb.brawl.result' | trans }} <small>{{ brawl.date | date('d/m/Y H:i') }}</small></h1>
+                <h1>{{ 'cmb.brawl.result' | trans }}
+                    <small>{{ brawl.date | date('d/m/Y H:i') }}</small>
+                </h1>
             </div>
 
             <div class="col-md-8 col-md-offset-2 text-center">
@@ -15,12 +17,22 @@
                     </div>
 
                     <div class="panel-body row">
-                            <div class="col-sm-6">
-                                <button type="button" class="btn {% if brawl.victoriousUser == 'attacker' %}btn-success{% else %}btn-danger{% endif %}">{{ brawl.attacker.username }}</button>
+                        <div class="col-sm-6">
+                            <div class="brawl-details {% if brawl.victoriousUser == 'attacker' %}bg-success{% else %}bg-danger{% endif %}">
+                                <div class="well well-sm">{{ brawl.attacker.username }}</div>
+                                <div class="well well-sm">{{ brawl.attacker.summoner.name }} -
+                                    <small>{{ brawl.attacker.region }}</small>
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                <button type="button" class="btn {% if brawl.victoriousUser == 'attacker' %}btn-danger{% else %}btn-success{% endif %}">{{ brawl.defender.username }}</button>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="brawl-details {% if brawl.victoriousUser != 'attacker' %}bg-success{% else %}bg-danger{% endif %}">
+                                <div class="well well-sm">{{ brawl.defender.username }}</div>
+                                <div class="well well-sm">{{ brawl.defender.summoner.name }} -
+                                    <small>{{ brawl.defender.region }}</small>
+                                </div>
                             </div>
+                        </div>
                     </div>
                     <div class="table-responsive">
                         <table class="brawl table">

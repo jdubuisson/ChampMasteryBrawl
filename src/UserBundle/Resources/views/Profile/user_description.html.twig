@@ -7,7 +7,7 @@
         </tr>
         <tr>
             <td>{{ 'cmb.summoner.name' | trans }}</td>
-            <td>{{ user.summoner.name }}</td>
+            <td>{{ user.summoner.name }} - <small>{{ user.region }}</small></td>
         </tr>
         {% for key, value in stats %}
             <tr>

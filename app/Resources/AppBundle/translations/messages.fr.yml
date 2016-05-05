@@ -13,3 +13,5 @@ cmb.brawl.view: __cmb.brawl.view
 cmb.assaults: __cmb.assaults
 cmb.assaults.description: __cmb.assaults.description
 cmb.user.name: __cmb.user.name
+cmb.brawl.attacker: __cmb.brawl.attacker
+cmb.brawl.defender: __cmb.brawl.defender

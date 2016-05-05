@@ -14,3 +14,13 @@
         </div>
     </div>
 {% endblock %}
+
+{% block body_end %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".clickable-row").click(function() {
+                window.document.location = $(this).data("href");
+            });
+        });
+    </script>
+{% endblock body_end %}

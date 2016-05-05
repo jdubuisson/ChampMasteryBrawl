@@ -13,20 +13,22 @@
                 <table class="table table-hover">
                     <tr>
                         {# sorting of properties based on query components #}
-                        <th></th>
+                        <th class="hidden-xs"></th>
                         <th class="text-center">{{ knp_pagination_sortable(pagination, 'Username', 'a.username') }}</th>
                         <th class="text-center">{{ 'cmb.summoner.name' | trans }}</th>
+                        <th class="text-center">{{ knp_pagination_sortable(pagination, 'Server', 'a.region') }}</th>
                         {# <th class="text-center">{{ 'cmb.summoner.challenge' | trans }}</th> #]
                     </tr>
 
                     {# table body #}
                         {% for user in pagination %}
-                    <tr {% if loop.index is odd %}class="color"{% endif %}>
-                        <td>
+                    <tr class="clickable-row{% if loop.index is odd %} color{% endif %}" data-href="{{ path('app_brawl_challenge', {'id':user.id}) }}">
+                        <td class="hidden-xs">
                             <a class="btn btn-default btn-sm" href="{{ path('app_brawl_challenge', {'id':user.id}) }}" role="button">{{ 'cmb.summoner.challenge' | trans }}</a>
                         </td>
                         <td>{{ user.username }}</td>
                         <td>{{ user.summoner.name }}</td>
+                        <td>{{ user.region }}</td>
                     </tr>
                     {% endfor %}
                 </table>
@@ -39,3 +41,13 @@
         </div>
     </div>
 {% endblock %}
+
+{% block body_end %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".clickable-row").click(function() {
+                window.document.location = $(this).data("href");
+            });
+        });
+    </script>
+{% endblock body_end %}

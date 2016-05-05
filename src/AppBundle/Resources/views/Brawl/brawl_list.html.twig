@@ -1,28 +1,38 @@
+{# requires clickable rows #}
 <div class="col-md-8 col-md-offset-2 text-center table-responsive">
     <table class="table table-hover">
         <tr>
             {# sorting of properties based on query components #}
-            <th></th>
-            <th class="text-center">{{ 'cmb.user.name' | trans }}</th>
-            <th class="text-center">{{ 'cmb.user.name' | trans }}</th>
+            <th class="hidden-xs"></th>
+            <th class="text-center">{{ 'cmb.brawl.attacker' | trans }}</th>
+            <th class="text-center">{{ 'cmb.brawl.defender' | trans }}</th>
             <th class="text-center hidden-xs">{{ 'cmb.brawl.date' | trans }}</th>
             {# <th class="text-center">{{ 'cmb.summoner.challenge' | trans }}</th> #]
         </tr>
 
         {# table body #}
             {% for brawl in pagination %}
-        <tr class="{% if loop.index is odd %}color{% endif %}">
-            <td>
+        <tr class="clickable-row{% if loop.index is odd %} color{% endif %}"
+            data-href="{{ path('app_brawl_viewbrawl', {'id':brawl.id}) }}">
+            <td class="hidden-xs">
                 <a class="btn btn-default btn-sm" href="{{ path('app_brawl_viewbrawl', {'id':brawl.id}) }}"
                    role="button">{{ 'cmb.brawl.view' | trans }}</a>
             </td>
             <td>
-                <button type="button"
-                        class="btn btn-sm {% if brawl.victoriousUser == 'attacker' %}btn-success{% else %}btn-danger{% endif %}">{{ brawl.attacker.username }}</button>
+                <div class="brawl-details {% if brawl.victoriousUser == 'attacker' %}bg-success{% else %}bg-danger{% endif %}">
+                    <div class="well well-sm">{{ brawl.attacker.username }}</div>
+                    <div class="well well-sm">{{ brawl.attacker.summoner.name }} -
+                        <small>{{ brawl.attacker.region }}</small>
+                    </div>
+                </div>
             </td>
             <td>
-                <button type="button"
-                        class="btn btn-sm {% if brawl.victoriousUser != 'attacker' %}btn-success{% else %}btn-danger{% endif %}">{{ brawl.defender.username }}</button>
+                <div class="brawl-details {% if brawl.victoriousUser != 'attacker' %}bg-success{% else %}bg-danger{% endif %}">
+                    <div class="well well-sm">{{ brawl.defender.username }}</div>
+                    <div class="well well-sm">{{ brawl.defender.summoner.name }} -
+                        <small>{{ brawl.defender.region }}</small>
+                    </div>
+                </div>
             </td>
             <td class="hidden-xs">{{ brawl.date | date('d/m/Y H:i') }}</td>
         </tr>
