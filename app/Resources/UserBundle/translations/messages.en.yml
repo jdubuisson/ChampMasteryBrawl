@@ -11,7 +11,7 @@ cmb.champion: Champion
 cmb.champion.mastery: 'Champion mastery'
 cmb.link.lorem: __cmb.link.lorem
 cmb.mastery_points.short: CMP
-cmb.brawl.totalAssaults: 'Nombre d''assauts'
-cmb.brawl.successfulAssaults: 'Nombre d''assauts gagnés'
-cmb.brawl.totalDefenses: 'Nombre de défenses'
-cmb.brawl.successfulDefenses: 'Nombre de défenses gagnées'
+cmb.brawl.totalAssaults: 'Number of assaults'
+cmb.brawl.successfulAssaults: 'Number of assaults you won'
+cmb.brawl.totalDefenses: 'Number of defenses'
+cmb.brawl.successfulDefenses: 'Number of defenses you won'
