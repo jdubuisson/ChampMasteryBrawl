@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * StaticChampion
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\StaticChampionRepository")
  */
 class StaticChampion
 {

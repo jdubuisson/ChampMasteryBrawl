@@ -25,7 +25,7 @@ class BrawlService
     {
         $brawl = $this->initiateBrawl($attacker, $defender);
         $em = $this->doctrine->getManager();
-        $championMasteryrepository = $em->getRepository('AppBundle:ChampionMastery');
+        $championMasteryRepository = $em->getRepository('AppBundle:ChampionMastery');
         $attackerRoundsWon = 0;
 
         for ($round = 1; $round <= 5; $round++) {
@@ -33,8 +33,8 @@ class BrawlService
             $functionGetDef = 'getDefenderChampion' . $round;
             $functionSetVictor = 'setVictoriousChampion' . $round;
 
-            $atk = $championMasteryrepository->findPointsBySummonerAndChampionId($attacker->getSummoner(), $brawl->$functionGetAtk());
-            $def = $championMasteryrepository->findPointsBySummonerAndChampionId($defender->getSummoner(), $brawl->$functionGetDef());
+            $atk = $championMasteryRepository->findPointsBySummonerAndChampionId($attacker->getSummoner(), $brawl->$functionGetAtk());
+            $def = $championMasteryRepository->findPointsBySummonerAndChampionId($defender->getSummoner(), $brawl->$functionGetDef());
             if ($atk >= $def) {
                 $brawl->$functionSetVictor('attacker');
                 $attackerRoundsWon++;

@@ -29,6 +29,10 @@ body {
     padding: 15px;
 }
 
-.brawl img {
+.brawl img, .team img, .champions img {
     margin: 0 auto;
+}
+
+.team .img-responsive {
+    max-width: 75%;
 }

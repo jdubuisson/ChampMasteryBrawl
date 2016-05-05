@@ -2,31 +2,81 @@
 
 {% block container %}
     <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h1>{{ 'cmb.profile' | trans }}</h1>
 
-        <div class="col-sm-8 col-md-offset-2 text-center">
-            <h1>{{ 'cmb.profile' | trans }}</h1>
-            <p>{{ 'cmb.profile.lorem' | trans }}</p>
-            <p>{{ user.username }}</p>
-            <p>{{ user.summoner.name }}</p>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'cmb.profile.summoner' | trans }}</h2>
+                    </div>
+                    <div class="panel-body row">
+                        <div class="col-sm-6">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>{{ 'cmb.user.name' | trans }}</td>
+                                        <td>{{ user.username }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{ 'cmb.summoner.name' | trans }}</td>
+                                        <td>{{ user.summoner.name }}</td>
+                                    </tr>
+                                    {% for key, value in stats %}
+                                        <tr>
+                                            <td>{{ ('cmb.brawl.'~key) | trans }}</td>
+                                            <td>{{ value }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="table-responsive">
+                                <table class="table team">
+                                    <tr>
+                                        <th class="text-center">{{ 'cmb.champion' | trans }}</th>
+                                        <th class="text-center">{{ 'cmb.champion.mastery'| trans }}</th>
+                                    <tr>
+                                        {% for row in teamDetails %}
+                                    <tr>
+                                        <td>
+                                            <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/{{ row.championData.championKey }}.png"
+                                                 class="img-responsive img-rounded"
+                                                 alt="{{ row.championData.championName }}">
+                                        </td>
+                                        {% for data in masteryData %}
+                                            {% if data.championId == row.championData.championId %}
+                                                <td>{{ row.championData.championName }} : {{ data.championPoints }}</td>
+                                            {% endif %}
+                                        {% endfor %}
+                                    <tr>
+                                        {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="col-sm-8 col-md-offset-2 text-center">
-            <h2>{{ 'cmb.user.top_champions' | trans }}</h2>
-
-            <p>{{ 'cmb.profile.lorem' | trans }}</p>
-            {% for data in masteryData %}
-                <p>{{ data.championId }} : {{ data.championPoints }}</p>
-            {% endfor %}
-        </div>
-
-        <div class="col-sm-8 col-md-offset-2 text-center">
-            <h2>{{ 'cmb.user.champion_team' | trans }}</h2>
-            <p>{{ 'cmb.profile.lorem' | trans }}</p>
-            <p>{{ user.champion1 }}</p>
-            <p>{{ user.champion2 }}</p>
-            <p>{{ user.champion3 }}</p>
-            <p>{{ user.champion4 }}</p>
-            <p>{{ user.champion5 }}</p>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'cmb.user.top_champions' | trans }}</h2>
+                    </div>
+                    <div class="panel-body row champions">
+                        {% for data in masteryData %}
+                            <div class="col-xs-6 col-sm-4 col-md-3 text-center well">
+                                <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/{{ staticChampions[ data.championId].championKey }}.png"
+                                     class="img-responsive img-rounded"
+                                     alt="{{ staticChampions[ data.championId].championName }}">
+                                <span>{{ data.championPoints }}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

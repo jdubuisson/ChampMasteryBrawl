@@ -46,8 +46,8 @@ class BrawlController extends Controller
      */
     public function viewBrawlAction(Request $request, Brawl $brawl)
     {
-        $em = $this->get('doctrine.orm.entity_manager');
-        $staticChampionRepository = $em->getRepository('AppBundle:StaticChampion');
+        $doctrine = $this->getDoctrine();
+        $staticChampionRepository = $doctrine->getRepository('AppBundle:StaticChampion');
         $resultsForDisplay = array();
         for ($round = 1; $round <= 5; $round++) {
             $functionGetAtk = 'getAttackerChampion' . $round;
@@ -67,9 +67,8 @@ class BrawlController extends Controller
      */
     public function listAssaultsAction(Request $request)
     {
-
-        $em = $this->get('doctrine.orm.entity_manager');
-        $query = $em->getRepository('AppBundle:Brawl')->generateAssaultsQuery($this->getUser());
+        $doctrine = $this->getDoctrine();
+        $query = $doctrine->getRepository('AppBundle:Brawl')->generateAssaultsQuery($this->getUser());
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
@@ -86,8 +85,8 @@ class BrawlController extends Controller
     public function listDefensesAction(Request $request)
     {
 
-        $em = $this->get('doctrine.orm.entity_manager');
-        $query = $em->getRepository('AppBundle:Brawl')->generateDefensesQuery($this->getUser());
+        $doctrine = $this->getDoctrine();
+        $query = $doctrine->getRepository('AppBundle:Brawl')->generateDefensesQuery($this->getUser());
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
