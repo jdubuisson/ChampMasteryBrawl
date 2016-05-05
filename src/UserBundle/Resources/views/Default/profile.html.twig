@@ -47,7 +47,7 @@
                                         </td>
                                         {% for data in masteryData %}
                                             {% if data.championId == row.championData.championId %}
-                                                <td>{{ row.championData.championName }} : {{ data.championPoints }}</td>
+                                                <td>{{ row.championData.championName }} : {{ data.championPoints }} {{ 'cmb.mastery_points.short' | trans }}</td>
                                             {% endif %}
                                         {% endfor %}
                                     <tr>
@@ -71,7 +71,7 @@
                                 <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/{{ staticChampions[ data.championId].championKey }}.png"
                                      class="img-responsive img-rounded"
                                      alt="{{ staticChampions[ data.championId].championName }}">
-                                <span>{{ data.championPoints }}</span>
+                                <span>{{ data.championPoints }} {{ 'cmb.mastery_points.short' | trans }}</span>
                             </div>
                         {% endfor %}
                     </div>

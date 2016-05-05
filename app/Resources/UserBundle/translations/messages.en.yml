@@ -8,5 +8,6 @@ cmb.profile.summoner: 'Information and team details'
 cmb.user.name: Username
 cmb.summoner.name: 'Summoner name'
 cmb.champion: Champion
-cmb.champion.mastery: 'Chamion mastery'
+cmb.champion.mastery: 'Champion mastery'
 cmb.link.lorem: __cmb.link.lorem
+cmb.mastery_points.short: CMP
