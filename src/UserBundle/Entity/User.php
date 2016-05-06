@@ -52,6 +52,13 @@ class User extends BaseUser
     private $lastMasteryUpdate;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="lastTeamUpdate", type="datetime", nullable=true)
+     */
+    private $lastTeamUpdate;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="champion1", type="integer", nullable=true)
@@ -266,6 +273,21 @@ class User extends BaseUser
     {
         $this->champion5 = $champion5;
     }
-    
+
+    /**
+     * @return \DateTime
+     */
+    public function getLastTeamUpdate()
+    {
+        return $this->lastTeamUpdate;
+    }
+
+    /**
+     * @param \DateTime $lastTeamUpdate
+     */
+    public function setLastTeamUpdate($lastTeamUpdate)
+    {
+        $this->lastTeamUpdate = $lastTeamUpdate;
+    }
 
 }

@@ -16,10 +16,16 @@
 
                             <div class="well well-sm">{{ 'cmb.mastery_points.explanations' | trans }}</div>
 
-                            <a class="btn btn-block btn-primary" href="{{ path('app_brawl_opponents') }}" role="button">{{ 'cmb.list.opponents' | trans }}</a>
-                            <a data-toggle="tooltip" title="{{ 'cmb.defenses.explanations' | trans }}" class="btn btn-block btn-primary" href="{{ path('app_brawl_listdefenses') }}" role="button">{{ 'cmb.defenses.button' | trans }}</a>
-                            <a data-toggle="tooltip" title="{{ 'cmb.assaults.explanations' | trans }}" class="btn btn-block btn-primary" href="{{ path('app_brawl_listassaults') }}" role="button">{{ 'cmb.assaults.button' | trans }}</a>
-                            <a class="btn btn-block btn-primary" href="#" role="button">{{ 'cmb.share_profile.button' | trans }}</a>
+                            <a class="btn btn-block btn-primary" href="{{ path('app_brawl_opponents') }}"
+                               role="button">{{ 'cmb.list.opponents' | trans }}</a>
+                            <a data-toggle="tooltip" title="{{ 'cmb.defenses.explanations' | trans }}"
+                               class="btn btn-block btn-primary" href="{{ path('app_brawl_listdefenses') }}"
+                               role="button">{{ 'cmb.defenses.button' | trans }}</a>
+                            <a data-toggle="tooltip" title="{{ 'cmb.assaults.explanations' | trans }}"
+                               class="btn btn-block btn-primary" href="{{ path('app_brawl_listassaults') }}"
+                               role="button">{{ 'cmb.assaults.button' | trans }}</a>
+                            <a class="btn btn-block btn-primary" href="#"
+                               role="button">{{ 'cmb.share_profile.button' | trans }}</a>
                         </div>
                         <div class="col-sm-6">
                             {{ include('UserBundle:Default:team.html.twig', {'teamDetails':teamDetails, 'masteryData':masteryData}) }}

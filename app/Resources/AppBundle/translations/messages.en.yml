@@ -16,4 +16,5 @@ cmb.user.name: Username
 cmb.brawl.attacker: Attacker
 cmb.brawl.defender: Defender
 cmb.region: Region
+cmb.brawl.cannot_attack_this_user_yet: 'You cannot attack this user yet : you won a brawl against him/her recently or his/her team is not ready.'
 

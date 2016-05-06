@@ -68,6 +68,7 @@ class UserMasteryService
                 }
             }
             $user->setLastMasteryUpdate(new \DateTime());
+            $user->setLastTeamUpdate(new \DateTime());
             $em->flush();
         }
     }

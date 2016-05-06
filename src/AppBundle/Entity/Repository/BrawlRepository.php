@@ -11,6 +11,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class BrawlRepository extends EntityRepository
 {
+    public function findLastWonBrawlDate($attacker, $defender)
+    {
+        $query = $this->createQueryBuilder('brawl')
+            ->select('brawl.date')
+            ->where('brawl.attacker = :attacker')
+            ->andWhere('brawl.defender = :defender')
+            ->andWhere("brawl.victoriousUser = 'attacker'")
+            ->setParameter('attacker', $attacker)
+            ->setParameter('defender', $defender)
+            ->orderBy('brawl.date', 'DESC')->getQuery();
+
+        return $query->setMaxResults(1)->getOneOrNullResult();
+    }
+
     public function generateAssaultsQuery($user, $limit = null)
     {
         $query = $this->getAssaultsQueryBuilder($user)

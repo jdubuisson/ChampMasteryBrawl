@@ -19,9 +19,9 @@ class BrawlController extends Controller
     {
         $doctrine = $this->getDoctrine();
         //
-        $form =  $this->createForm(FilterOpponentsType::class);
+        $form = $this->createForm(FilterOpponentsType::class);
         $form->handleRequest($request);
-        $data=$form->getData();
+        $data = $form->getData();
         $query = $doctrine->getRepository('UserBundle:User')->generateOpponentsQuery($this->getUser(), $data);
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
@@ -40,7 +40,14 @@ class BrawlController extends Controller
     public function challengeAction(Request $request, User $defendingUser)
     {
         $user = $this->getUser();
-        $brawl = $this->get('cmb.brawl_service')->computeBrawl($user, $defendingUser);
+        $brawlService = $this->get('cmb.brawl_service');
+        //check if we can attack the defendingUser
+        $brawlCanTakePlace = $brawlService->checkBrawlRules($user, $defendingUser);
+        if (!$brawlCanTakePlace) {
+            $this->addFlash('warning','cmb.brawl.cannot_attack_this_user_yet');
+            return $this->redirectToRoute('app_brawl_opponents');
+        }
+        $brawl = $brawlService->computeBrawl($user, $defendingUser);
         return $this->redirectToRoute('app_brawl_viewbrawl', ['id' => $brawl->getId()]);
     }
 

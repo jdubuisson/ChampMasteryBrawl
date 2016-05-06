@@ -1,6 +1,8 @@
 <div class="well row">
+    <div class="col-sm-12">
     {{ form_start(form) }}
     {{ form_errors(form) }}
+    </div>
     <div class="col-sm-5">
         {{ form_row(form.nameFilter) }}
     </div>
@@ -10,5 +12,7 @@
     <div class="col-sm-2" style="padding-top:20px">
         {{ form_rest(form) }}
     </div>
+    <div class="col-sm-12">
     {{ form_end(form) }}
+    </div>
 </div>

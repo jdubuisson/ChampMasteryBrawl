@@ -21,6 +21,35 @@ class BrawlService
         $this->doctrine = $doctrine;
     }
 
+    public function checkBrawlRules(AppUSer $attacker, AppUser $defender)
+    {
+        $isOk = false;
+        $brawlRepository = $this->doctrine->getRepository('AppBundle:Brawl');
+        $lastBrawlDate = $brawlRepository->findLastWonBrawlDate($attacker, $defender);
+
+        if ($lastBrawlDate != null && count($lastBrawlDate) == 1) {
+            //there is a previous brawl : we investigate
+            $lastBrawlDate = $lastBrawlDate['date'];
+
+            if ($lastBrawlDate < (new \DateTime())->modify('-24 hours')) {
+                //the brawl is "old" : fight on !
+                $isOk = true;
+            } else {
+                //the brawl is not "old" : we investigate
+                $lastDefenderTeamUpdate = $defender->getLastTeamUpdate();
+                if ($lastDefenderTeamUpdate != null) {
+                    //Did the defender update his/her team since the last fight ?
+                    $isOk = ($lastBrawlDate < $lastDefenderTeamUpdate);
+                }
+            }
+        } else {
+            //there is not a previous brawl : fight on !
+            $isOk = true;
+        }
+        return $isOk;
+    }
+
+
     public function computeBrawl(AppUSer $attacker, AppUser $defender)
     {
         $brawl = $this->initiateBrawl($attacker, $defender);
