@@ -43,15 +43,15 @@ security:
             anonymous: true
             logout:
                 path: /logout
-                target: /connect #where to go after logout
+                target: / #where to go after logout
 
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login_check, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/resetting, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/connect, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
-        - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/, roles: ROLE_USER }
+        - { path: ^/[a-z]+/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/[a-z]+/resetting, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/[a-z]+/connect, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/[a-z]+/admin/, role: ROLE_ADMIN }
+        - { path: ^/[a-z]+/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/[a-z]+/, roles: ROLE_USER }

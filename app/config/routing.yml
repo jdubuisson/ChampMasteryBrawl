@@ -2,6 +2,7 @@
 fos_user_security_logout:
     path: "/logout"
     defaults:  { _controller: FOSUserBundle:Security:logout }
+    options: { i18n: false }
 
 hwi_oauth_redirect:
     resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
@@ -17,9 +18,11 @@ hwi_oauth_connect:
 
 hwi_facebook_login:
     path: /login/check-facebook
+    options: { i18n: false }
 
 hwi_google_login:
     path: /login/check-google
+    options: { i18n: false }
 
 user:
     resource: "@UserBundle/Controller/"
