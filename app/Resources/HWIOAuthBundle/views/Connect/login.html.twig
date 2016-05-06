@@ -1,0 +1,21 @@
+{% extends 'HWIOAuthBundle::layout.html.twig' %}
+
+{% block hwi_oauth_content %}
+
+    <div class="row well">
+        <div class="col-md-8 text-center col-md-offset-2">
+            <h1>{{ 'connect.page.title' | trans({}, 'HWIOAuthBundle') }}</h1>
+
+            <p>{{ 'connect.page.help' | trans({}, 'HWIOAuthBundle') }}</p>
+            {% if error %}
+                <span>{{ error }}</span>
+            {% endif %}
+            {% for owner in hwi_oauth_resource_owners() %}
+                <p><a class="btn btn-primary btn-lg" role="button"
+                      href="{{ hwi_oauth_login_url(owner) }}">{{ owner | trans({}, 'HWIOAuthBundle')|capitalize }}</a></p>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock hwi_oauth_content %}

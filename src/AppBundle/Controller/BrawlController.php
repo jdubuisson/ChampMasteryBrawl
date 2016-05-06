@@ -17,6 +17,10 @@ class BrawlController extends Controller
      */
     public function opponentsAction(Request $request)
     {
+        $user = $this->getUser();
+        if ($user->getSummoner() == null) {
+            return $this->redirectToRoute('user_summoner_link');
+        }
         $doctrine = $this->getDoctrine();
         //
         $form = $this->createForm(FilterOpponentsType::class);
@@ -40,6 +44,9 @@ class BrawlController extends Controller
     public function challengeAction(Request $request, User $defendingUser)
     {
         $user = $this->getUser();
+        if ($user->getSummoner() == null) {
+            return $this->redirectToRoute('user_summoner_link');
+        }
         $brawlService = $this->get('cmb.brawl_service');
         //check if we can attack the defendingUser
         $brawlCanTakePlace = $brawlService->checkBrawlRules($user, $defendingUser);
@@ -57,6 +64,10 @@ class BrawlController extends Controller
      */
     public function viewBrawlAction(Request $request, Brawl $brawl)
     {
+        $user = $this->getUser();
+        if ($user->getSummoner() == null) {
+            return $this->redirectToRoute('user_summoner_link');
+        }
         $doctrine = $this->getDoctrine();
         $staticChampionRepository = $doctrine->getRepository('AppBundle:StaticChampion');
         $resultsForDisplay = array();
@@ -88,8 +99,12 @@ class BrawlController extends Controller
      */
     public function listAssaultsAction(Request $request)
     {
+        $user = $this->getUser();
+        if ($user->getSummoner() == null) {
+            return $this->redirectToRoute('user_summoner_link');
+        }
         $doctrine = $this->getDoctrine();
-        $query = $doctrine->getRepository('AppBundle:Brawl')->generateAssaultsQuery($this->getUser());
+        $query = $doctrine->getRepository('AppBundle:Brawl')->generateAssaultsQuery($user);
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
@@ -105,9 +120,12 @@ class BrawlController extends Controller
      */
     public function listDefensesAction(Request $request)
     {
-
+        $user = $this->getUser();
+        if ($user->getSummoner() == null) {
+            return $this->redirectToRoute('user_summoner_link');
+        }
         $doctrine = $this->getDoctrine();
-        $query = $doctrine->getRepository('AppBundle:Brawl')->generateDefensesQuery($this->getUser());
+        $query = $doctrine->getRepository('AppBundle:Brawl')->generateDefensesQuery($user);
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query, /* query NOT result */

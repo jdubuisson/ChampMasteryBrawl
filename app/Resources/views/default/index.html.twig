@@ -17,7 +17,13 @@
 
                         <p>{{ 'cmb.home.description' | trans }}</p>
 
-                        <p>{{ 'cmb.home.scroll_to_see_more' | trans }}</p>
+                        <p>{{ 'cmb.home.scroll_to_see_more' | trans }} -
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                <a href="{{ path('user_default_profile') }}">{{ 'cmb.home.profile' | trans }}</a>
+                            {% else %}
+                                <a href="{{ path('hwi_oauth_connect') }}">{{ 'cmb.home.login_or_register'|trans() }}</a>
+                            {% endif %}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -27,13 +33,44 @@
             <div class="intro container rounded-img well">
                 <div class="row">
                     <div class="col-md-8 text-center col-md-offset-2">
-                        <h2>{{ 'cmb.home.h2_one' | trans }}</h2>
+                        <h2>{{ 'cmb.home.h2.one' | trans }}</h2>
 
-                        <p>{{ 'cmb.home.lorem' | trans }}</p>
+                        <p>{{ 'cmb.home.description.one' | trans }}</p>
+
+                        <p>{{ 'cmb.home.description.one_bis' | trans }}</p>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="section home-3 ">
+            <div class="intro container rounded-img well">
+                <div class="row">
+                    <div class="col-md-8 text-center col-md-offset-2">
+                        <h2>{{ 'cmb.home.h2.two' | trans }}</h2>
+
+                        <p>{{ 'cmb.home.description.two' | trans }}</p>
+
+                        <p>{{ 'cmb.home.description.two_bis' | trans }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section home-4 ">
+            <div class="intro container rounded-img well">
+                <div class="row">
+                    <div class="col-md-8 text-center col-md-offset-2">
+                        <h2>{{ 'cmb.home.h2.three' | trans }}</h2>
+
+                        <p>{{ 'cmb.home.description.three' | trans }}</p>
+
+                        <p>{{ 'cmb.home.description.three_bis' | trans }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 {% endblock %}

@@ -1,18 +1,19 @@
-cmb.challenge: __cmb.challenge
+cmb.challenge: Défi
 cmb.challenge.description: __cmb.challenge.description
-cmb.opponents: __cmb.opponents
-cmb.opponents.description: __cmb.opponents.description
-cmb.summoner.name: __cmb.summoner.name
-cmb.summoner.challenge: __cmb.summoner.challenge
-cmb.brawl.result: __cmb.brawl.result
-cmb.brawl.overview: __cmb.brawl.overview
-cmb.defenses: __cmb.defenses
-cmb.defenses.description: __cmb.defenses.description
-cmb.brawl.date: __cmb.brawl.date
-cmb.brawl.view: __cmb.brawl.view
-cmb.assaults: __cmb.assaults
-cmb.assaults.description: __cmb.assaults.description
-cmb.user.name: __cmb.user.name
-cmb.brawl.attacker: __cmb.brawl.attacker
-cmb.brawl.defender: __cmb.brawl.defender
+cmb.opponents: 'Liste d''adversaires disponibles'
+cmb.opponents.description: 'Utilisez cette liste pour trouver un ami (ou ennemi) et défier son équipe pour une baston'
+cmb.summoner.name: 'Nom d''invocateur'
+cmb.summoner.challenge: 'Défie cet utilisateur !'
+cmb.brawl.result: 'Résultats de la baston'
+cmb.brawl.overview: Résumé
+cmb.defenses: 'My défenses'
+cmb.defenses.description: 'Voici la liste des bastons que quelqu''un a déclenché contre toi.'
+cmb.brawl.date: Date
+cmb.brawl.view: Détails
+cmb.assaults: 'Mes Assauts'
+cmb.assaults.description: 'Voici la liste des bastons que tu as déclenché.'
+cmb.user.name: 'Nom d''utilisateur'
+cmb.brawl.attacker: Attaquant
+cmb.brawl.defender: Défenseur
 cmb.region: Serveur
+cmb.brawl.cannot_attack_this_user_yet: 'Tu ne peux pas attaquer cet utilisateur : tu l''as vaincu(e) récemment ou bien son équipe n''est pas prête.'

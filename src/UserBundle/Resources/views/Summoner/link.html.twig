@@ -4,9 +4,7 @@
 <div class="container">
 
     <div class="col-md-8 col-md-offset-2 text-center">
-        <h1>{{ 'cmb.profile.h1' | trans }}</h1>
-        <p>{{ 'cmb.link.lorem' | trans }}</p>
-        <p>{{ user.username }}</p>
+        <h1>{{ 'cmb.profile.create' | trans }}</h1>
     </div>
     <div class="col-md-8 col-md-offset-2 text-center">
         <h2>{{ 'cmb.profile.link-summoner' | trans }}</h2>
@@ -15,6 +13,9 @@
 
         {{ form_row(form.name) }}
         {{ form_row(form.region) }}
+
+        <h2>{{ 'cmb.profile.choose_username' | trans }}</h2>
+        {{ form_row(form.username) }}
         {{ form_rest(form) }}
         {{ form_end(form) }}
     </div>

@@ -1,24 +1,24 @@
 cmb.profile: Profil
-cmb.profile.link-summoner: __cmb.profile.link-summoner
-Linkaccount: 'Link your account'
-cmb.user.top_champions: __cmb.user.top_champions
-cmb.user.champion_team: __cmb.user.champion_team
-cmb.profile.h1: __cmb.profile.h1
-cmb.profile.summoner: __cmb.profile.summoner
-cmb.user.name: __cmb.user.name
-cmb.summoner.name: __cmb.summoner.name
-cmb.champion: __cmb.champion
-cmb.champion.mastery: __cmb.champion.mastery
-cmb.link.lorem: __cmb.link.lorem
-cmb.mastery_points.short: __cmb.mastery_points.short
+cmb.profile.link-summoner: 'Quel est ton nom d''invocateur et ton serveur ?'
+Linkaccount: 'Active ton compte'
+cmb.user.top_champions: 'Tes meilleurs champions'
+cmb.user.champion_team: 'Ton équipe de champions'
+cmb.profile.create: 'Crées ton profil'
+cmb.profile.summoner: 'Information and détails d''équipe'
+cmb.user.name: 'Nom d''utilisateur'
+cmb.summoner.name: 'Nom d''invocateur'
+cmb.champion: Champion
+cmb.champion.mastery: 'Maîtrise de Champion'
+cmb.mastery_points.short: PMC
 cmb.brawl.totalAssaults: 'Nombre d''assauts'
 cmb.brawl.successfulAssaults: 'Nombre d''assauts gagnés'
 cmb.brawl.totalDefenses: 'Nombre de défenses'
 cmb.brawl.successfulDefenses: 'Nombre de défenses gagnées'
-cmb.mastery_points.explanations: __cmb.mastery_points.explanations
-cmb.assaults.explanations: __cmb.assaults.explanations
-cmb.defenses.explanations: __cmb.defenses.explanations
-cmb.list.opponents: __cmb.list.opponents
-cmb.defenses.button: __cmb.defenses.button
-cmb.assaults.button: __cmb.assaults.button
-cmb.share_profile.button: __cmb.share_profile.button
+cmb.mastery_points.explanations: 'Les Points de Maîtrise de Champion (or PMC) sont calculés par Riot quand tu joues un champion dans League of Legends. Plus tu joues, plus ce score augmente.'
+cmb.assaults.explanations: 'Un assaut est une baston que tu as déclenché.'
+cmb.defenses.explanations: 'Une défense est une baston que quelqu''un a déclenché contre toi.'
+cmb.list.opponents: 'Trouver un adversaire'
+cmb.defenses.button: 'Voir tes défenses (et venge-toi !)'
+cmb.assaults.button: 'Voir tes assauts'
+cmb.share_profile.button: 'Partager sur ton mur Facebook'
+cmb.profile.choose_username: 'Choisis un nom d''utilisateur pour ce jeu'

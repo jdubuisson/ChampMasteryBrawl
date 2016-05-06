@@ -41,6 +41,7 @@ class SummonerController extends Controller
                     } else {
                         $user->setSummoner($dbSummoner[0]);
                     }
+                    $user->setUsername($form->getData()['username']);
                     $em->persist($user);
                     $em->flush();
                 } catch (ClientException $ce) {

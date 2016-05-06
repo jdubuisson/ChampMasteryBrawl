@@ -1,13 +1,21 @@
-cmb.home.h1: __cmb.home.h1
-cmb.home.description: __cmb.home.description
-cmb.home.scroll_to_see_more: __cmb.home.scroll_to_see_more
-cmb.home.h2_one: __cmb.home.h2_one
-cmb.home.lorem: __cmb.home.lorem
-cmb.website.name: __cmb.website.name
-cmb.dummy_link: __cmb.dummy_link
-cmb.profile: __cmb.profile
-cmb.list.opponents: __cmb.list.opponents
-cmb.login_or_register: __cmb.login_or_register
-cmb.assaults: __cmb.assaults
-cmb.defenses: __cmb.defenses
+cmb.home.h1: 'Bienvenue à ChampMastery : Brawl !'
+cmb.home.description: 'C''est un jeu dans lequel tu utilises ta maîtrise des champions de League of Legends pour bastonner tes amis.'
+cmb.home.scroll_to_see_more: 'Scrolle vers le bas pour en apprendre plus'
+cmb.home.h2.one: 'Ta maîtrise, tes champions, ton équipe'
+cmb.home.description.one: 'Le score de maîtrise de chaque champion augmente après chaque partie de League Of Legends.'
+cmb.home.description.one_bis: 'Nous utilisons ces informations pour que tu puisse créer une équipe de champions que tu maîtrises.'
+cmb.home.h2.two: 'Montre ta maîtrise en gagnant des bastons !'
+cmb.home.description.two: 'Défie d''autres invocateurs : Qui maîtrse vraiment les champions de LoL ?'
+cmb.home.description.two_bis: 'Pendant chaque baston, tes 5 champions rencontrent l''équipe de ton adversaire. Tu gagnes si ton score de maîtrise est plus élevé !'
+cmb.home.h2.three: 'Sécurisé et simple'
+cmb.home.description.three: 'Nous utilisons l''API de League of Legends : ton compte est en sécurité'
+cmb.home.description.three_bis: 'Pas besoin de créer un nouveau compte pour ce jeu : connecte-toi avec Google ou Facebook.'
+cmb.website.name: 'ChampMastery : Brawl'
+cmb.profile: 'Mon profil'
+cmb.list.opponents: 'Trouver un adversaire'
+cmb.login_or_register: 'Connection ou activation de compte'
+cmb.assaults: 'Mes assauts'
+cmb.defenses: 'Mes défenses'
 cmb.language.switch: 'Changer de langue'
+cmb.home.profile: 'ou accède à ton profil'
+cmb.home.login_or_register: 'ou connecte-toi/active ton compte'

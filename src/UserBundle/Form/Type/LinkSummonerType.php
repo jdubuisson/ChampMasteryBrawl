@@ -20,6 +20,7 @@ class LinkSummonerType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('username')
             ->add('region', ChoiceType::class, array(
                 'choices' => $this->regions,))
             ->add('linkaccount', SubmitType::class, array(
