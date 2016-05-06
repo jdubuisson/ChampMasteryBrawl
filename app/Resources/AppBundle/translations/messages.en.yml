@@ -1,5 +1,4 @@
 cmb.challenge: Challenge
-cmb.challenge.description: __cmb.challenge.description
 cmb.opponents: 'List of available opponents'
 cmb.opponents.description: 'Use this list to find a friend (or foe) and challenge his/her team to a brawl.'
 cmb.summoner.name: 'Summoner name'
