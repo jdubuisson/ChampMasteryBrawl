@@ -19,7 +19,8 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     #LoLAPI key
-    dowdow_league_of_legends_api: fake_key_change_it
+    dowdow_league_of_legends_api:
+        key: changeit
 
     #OAuth through google key and secret
     google_app_id:           yourgoogleappid
