@@ -25,7 +25,7 @@ body {
     background-color: #009871;
 }
 
-.brawl td>div {
+.brawl td > div {
     padding: 15px;
 }
 
@@ -50,10 +50,74 @@ body {
     padding: 6px;
 }
 
-.brawl-details>.well {
+.brawl-details > .well {
     margin-bottom: 6px;
 }
 
-.brawl-details>.well+.well {
+.brawl-details > .well + .well {
     margin-bottom: 0;
+}
+
+.home-1, .home-2, .home-3, .home-4 {
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.home-1 {
+    background-image: url('../../bundles/app/images/xs_bg_champions.png');
+}
+
+.home-2 {
+    background-image: url('../../bundles/app/images/xs-bg-ahri.jpg');
+}
+
+.home-3 {
+    background-image: url('../../bundles/app/images/xs-bg-mordekaiser.jpg');
+}
+
+.home-4 {
+    background-image: url('../../bundles/app/images/xs-bg-vi.jpg');
+}
+
+@media (min-width: 768px) {
+    .home-1 {
+        background-image: url('../../bundles/app/images/sm_bg_champions.png');
+    }
+
+    .home-2 {
+        background-image: url('../../bundles/app/images/sm-bg-ahri.jpg');
+    }
+
+    .home-3 {
+        background-image: url('../../bundles/app/images/sm-bg-mordekaiser.jpg');
+    }
+
+    .home-4 {
+        background-image: url('../../bundles/app/images/sm-bg-vi.jpg');
+    }
+}
+
+@media (min-width: 992px) {
+
+    .home-1 {
+        background-image: url('../../bundles/app/images/bg_champions.png');
+    }
+
+    .home-2 {
+        background-image: url('https://lolstatic-a.akamaihd.net/game-info/1.1.9/images/champion/backdrop/bg-ahri.jpg');
+    }
+
+    .home-3 {
+        background-image: url('https://lolstatic-a.akamaihd.net/game-info/1.1.9/images/champion/backdrop/bg-mordekaiser.jpg');
+    }
+
+    .home-4 {
+        background-image: url('https://lolstatic-a.akamaihd.net/game-info/1.1.9/images/champion/backdrop/bg-vi.jpg');
+    }
+}
+
+.home .intro {
+    background: rgba(20, 20, 20, 0.85);
 }
