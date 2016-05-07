@@ -73,12 +73,15 @@ class DefaultController extends Controller
         $masteryData = $doctrine->getRepository('AppBundle:ChampionMastery')->findTopBySummoner($summoner);
 
         //team update
+        //very ugly but gets the job done.
         $id0 = $request->query->get('id0');
         if ($id0 != null && array_key_exists($id0, $masteryData)) {
             $user->setChampion1($id0);
             $id1 = $request->query->get('id1');
+            $this->addFlash('success', 'cmb.team.successful_update');
             if ($id1 != null && array_key_exists($id1, $masteryData)) {
                 $user->setChampion2($id1);
+                $user->setLastTeamUpdate(new \DateTime());
                 $id2 = $request->query->get('id2');
                 if ($id2 != null && array_key_exists($id2, $masteryData)) {
                     $user->setChampion3($id2);
@@ -95,6 +98,7 @@ class DefaultController extends Controller
             $em = $doctrine->getEntityManager();
             $em->persist($user);
             $em->flush();
+
             return $this->redirectToRoute('user_default_editteam');
         }
         //static champions

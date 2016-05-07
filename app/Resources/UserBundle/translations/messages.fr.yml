@@ -28,3 +28,4 @@ cmb.team.edit.cancel: Annuler
 cmb.team.edit.update: 'Mettre à jour'
 cmb.team.available_champions: 'Liste des chamions disponibles'
 cmb.team.selected_champions: 'Equipe de champions'
+cmb.team.successful_update: 'Ton équipe a été mise à jour avec succès !'
