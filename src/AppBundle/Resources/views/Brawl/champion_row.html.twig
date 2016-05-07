@@ -17,14 +17,30 @@
         </div>
     </td>
 </tr>
-<tr>
+<tr class="small-row">
     <td class="brawl-row-details" colspan="3">
         <div class="img-rounded">
+            <div class="progress huge-text">
+                <div class="progress-bar {% if row.victor == 'attacker' %}progress-bar-success{% else %}progress-bar-danger{% endif %}"
+                     style="width: {{ (row.attackerMastery / (row.attackerMastery + row.defenderMastery) *100) }}%">
+                    {{ row.attacker }}
+                </div>
+                <div class="progress-bar {% if row.victor != 'attacker' %}progress-bar-success{% else %}progress-bar-danger{% endif %}"
+                     style="width: {{ (row.defenderMastery / (row.attackerMastery + row.defenderMastery) *100) }}%">
+                    {{ row.defender }}
+                </div>
+            </div>
+        </div>
+    </td>
+</tr>
+<tr class="small-row">
+    <td class="brawl-row-details" colspan="3">
+        <div class="img-rounded grey">
             <small>{% if row.victor == 'attacker' %}
-                {{ 'cmb.brawl.result.row.won' | trans({'%attacker%': row.attacker, '%defender%': row.defender, '%attackerMastery%': row.attackerMastery, '%defenderMastery%': row.defenderMastery, }) }}
-            {% else %}
-                {{ 'cmb.brawl.result.row.lost' | trans({'%attacker%': row.attacker, '%defender%': row.defender, '%attackerMastery%': row.attackerMastery, '%defenderMastery%': row.defenderMastery, }) }}
-            {% endif %}</small>
+                    {{ 'cmb.brawl.result.row.won' | trans({'%attacker%': row.attacker, '%defender%': row.defender, '%attackerMastery%': row.attackerMastery, '%defenderMastery%': row.defenderMastery, }) }}
+                {% else %}
+                    {{ 'cmb.brawl.result.row.lost' | trans({'%attacker%': row.attacker, '%defender%': row.defender, '%attackerMastery%': row.attackerMastery, '%defenderMastery%': row.defenderMastery, }) }}
+                {% endif %}</small>
         </div>
     </td>
 </tr>

@@ -127,12 +127,20 @@ body {
 }
 
 .table > tbody > tr.brawl-row-champions > td {
+    padding-bottom: 5px;
+}
+
+.table > tbody > tr.small-row > td {
     padding-bottom: 4px;
 }
 
-.table > tbody > tr > td.brawl-row-details div {
-    background-color: dimgrey;
+.table > tbody > tr.small-row > td.brawl-row-details > div {
     padding: 3px;
+}
+
+.table > tbody > tr.small-row > td.brawl-row-details .grey {
+    background-color: dimgrey;
+    margin-bottom: 21px;
 }
 
 .selected-champions {
@@ -156,4 +164,12 @@ body {
 
 .submit-team, .cancel-team {
     margin-bottom: 21px;
+}
+.progress.huge-text {
+    height: 18px;
+    margin-bottom: 0;
+}
+.progress.huge-text .progress-bar {
+    font-size: 16px;
+    line-height: 16px;
 }
