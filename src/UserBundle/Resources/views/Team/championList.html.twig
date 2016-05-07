@@ -1,0 +1,13 @@
+{% for data in championList %}
+    {% if data is not null %}
+        <div class="col-sm-4 col-md-3" data-champion="{{ data.championId }}">
+            <div class="text-center well well-sm">
+                <img src="http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/{{ staticChampions[ data.championId].championKey }}.png"
+                     class="img-responsive img-rounded"
+                     alt="{{ staticChampions[ data.championId].championName }}">
+                <small>{{ data.championPoints }}
+                    <br/>{{ 'cmb.mastery_points.short' | trans }}</small>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}

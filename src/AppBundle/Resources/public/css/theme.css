@@ -29,7 +29,7 @@ body {
     padding: 15px;
 }
 
-.brawl img, .team img, .champions img {
+.brawl img, .team img, .champions img, .available-champions img {
     margin: 0 auto;
 }
 
@@ -130,8 +130,30 @@ body {
     padding-bottom: 4px;
 }
 
-
 .table > tbody > tr > td.brawl-row-details div {
     background-color: dimgrey;
     padding: 3px;
+}
+
+.selected-champions {
+    background-color: dimgrey;
+    margin-right: 15px;
+}
+
+.available-champions, .selected-champions {
+    vertical-align: top;
+}
+
+.available-champions .well {
+    background-color: dimgrey;
+
+}
+
+.available-champions > div, .selected-champions > div {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.submit-team, .cancel-team {
+    margin-bottom: 21px;
 }

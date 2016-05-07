@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.6.8/dragula.min.js'></script>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h1>{{ 'cmb.team.edit' | trans }}</h1>
+
+                <p>{{ 'cmb.team.edit.help' | trans }}</p>
+
+                <a class="btn btn-danger cancel-team" href="{{ path('user_default_profile') }}"
+                   role="button">{{ 'cmb.team.edit.cancel' | trans }}</a>
+
+                <button type="button" class="btn btn-primary submit-team">{{ 'cmb.team.edit.update' | trans }}</button>
+
+                <div class="panel panel-default">
+                    <div class="table-responsive">
+                        <table class=table">
+                            <thead>
+                            <tr>
+                                <td class="col-xs-6">
+                                    <p class="lead">{{ 'cmb.team.available_champions' | trans }}</p>
+                                </td>
+                                <td class="col-xs-6 selected-champions">
+                                    <p class="lead">{{ 'cmb.team.selected_champions' | trans }}</p>
+                                </td>
+                            </tr>
+                            </thead>
+                            <tr>
+                                <td id="left" class="col-xs-6 available-champions row">
+                                    {{ include('UserBundle:Team:championList.html.twig', {'championList':masteryData, 'staticChampions':staticChampions}) }}
+                                </td>
+                                <td id="right" class="col-xs-6 selected-champions">
+                                    {{ include('UserBundle:Team:championList.html.twig', {'championList':teamData, 'staticChampions':staticChampions}) }}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <a class="btn btn-danger cancel-team" href="{{ path('user_default_profile') }}"
+                   role="button">{{ 'cmb.team.edit.cancel' | trans }}</a>
+
+                <button type="button" class="btn btn-primary submit-team">{{ 'cmb.team.edit.update' | trans }}</button>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body_end %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            dragula([document.querySelector('#left'), document.querySelector('#right')]);
+
+            $(".submit-team").click(function () {
+                var champions = [];
+                var pageUrl = window.location.href;
+                pageUrl = pageUrl.concat('?');
+                $('#right > div').each(function (index) {
+                    if (index < 5) {
+                        pageUrl = pageUrl.concat('id').concat(index).concat('=').concat($(this).data('champion')).concat('&');
+                        champions.push($(this).data('champion'));
+                    }
+                });
+                window.location.href = pageUrl;
+            });
+        });
+    </script>
+{% endblock body_end %}

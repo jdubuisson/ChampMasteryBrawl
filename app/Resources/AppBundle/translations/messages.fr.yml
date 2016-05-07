@@ -18,4 +18,3 @@ cmb.region: Serveur
 cmb.brawl.cannot_attack_this_user_yet: 'Tu ne peux pas attaquer cet utilisateur : tu l''as vaincu(e) récemment ou bien son équipe n''est pas prête.'
 cmb.brawl.result.row.won: '%attacker% (%attackerMastery% PMC) a gagné contre %defender% (%defenderMastery% PMC)'
 cmb.brawl.result.row.lost: '%attacker% (%attackerMastery% PMC) a perdu contre %defender% (%defenderMastery% PMC)'
-

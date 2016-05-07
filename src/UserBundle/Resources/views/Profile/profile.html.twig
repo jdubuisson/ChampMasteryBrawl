@@ -28,6 +28,10 @@
                                role="button">{{ 'cmb.share_profile.button' | trans }}</a>
                         </div>
                         <div class="col-sm-6">
+
+                            <a class="btn btn-info" href="{{ path('user_default_editteam') }}"
+                               role="button">{{ 'cmb.team.edit.update' | trans }}</a>
+
                             {{ include('UserBundle:Default:team.html.twig', {'teamDetails':teamDetails, 'masteryData':masteryData}) }}
                         </div>
                     </div>

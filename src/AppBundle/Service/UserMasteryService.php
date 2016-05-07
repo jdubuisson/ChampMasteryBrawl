@@ -62,8 +62,12 @@ class UserMasteryService
                 $em->persist($champMasteryObject);
                 if($slot <=5)
                 {
-                    $functionName = 'setChampion'.$slot;
-                    $user->$functionName($championMastery->championId);
+                    $getterName = 'getChampion' . $slot;
+                    if($user->$getterName() == null)
+                    {
+                        $functionName = 'setChampion' . $slot;
+                        $user->$functionName($championMastery->championId);
+                    }
                     $slot++;
                 }
             }
