@@ -5,9 +5,9 @@
 
 {% block head_style %}
     {# bootlint : need this meta#}
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     {# css and fonts#}
-    {% stylesheets '@AppBundle/Resources/public/css/*'%}
+    {% stylesheets '@AppBundle/Resources/public/css/*' %}
     <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}
 
@@ -26,6 +26,16 @@
     {% stylesheets
     output='fonts/glyphicons-halflings-regular.woff2'
     'bundles/app/fonts/glyphicons-halflings-regular.woff2' %}{% endstylesheets %}
+
+    <meta property="og:url" content="{{ path('homepage') }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="ChampMastery : Brawl"/>
+    <meta property="og:description" content="{{ 'cmb.facebook.description' | trans() }}"/>
+    {% image '@AppBundle/Resources/public/images/cm-logo.png' %}
+    <meta property="og:image" content="{{ app.request.getSchemeAndHttpHost() ~ asset_url }}"/>
+    {% endimage %}
+
+
 {% endblock head_style %}
 
 {# global js#}
@@ -33,8 +43,7 @@
     {# jquery first for dependency issues#}
     {% javascripts
     '@AppBundle/Resources/public/js/jquery-1.11.2.min.js'
-    '@AppBundle/Resources/public/js/*'
-     %}
+    '@AppBundle/Resources/public/js/*' %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock head_script %}

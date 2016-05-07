@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block container %}
+
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center">
@@ -24,8 +25,13 @@
                             <a data-toggle="tooltip" title="{{ 'cmb.assaults.explanations' | trans }}"
                                class="btn btn-block btn-primary" href="{{ path('app_brawl_listassaults') }}"
                                role="button">{{ 'cmb.assaults.button' | trans }}</a>
-                            <a class="btn btn-block btn-primary" href="#"
-                               role="button">{{ 'cmb.share_profile.button' | trans }}</a>
+
+                            <a href="http://facebook.com/sharer.php?u={{ app.request.getSchemeAndHttpHost() ~  path('homepage') }}"
+                               target="_blank"
+                               class="btn btn-block btn-info" role="button">
+                                {{ 'cmb.share_profile.button' | trans }}
+                            </a>
+
                         </div>
                         <div class="col-sm-6">
 
