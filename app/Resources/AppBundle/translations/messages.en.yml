@@ -8,7 +8,7 @@ cmb.brawl.overview: Overview
 cmb.defenses: 'My defenses'
 cmb.defenses.description: 'This is the list of all the brawls someone started against you.'
 cmb.brawl.date: Date
-cmb.brawl.view: Details
+cmb.brawl.view: 'Details and strike back'
 cmb.assaults: 'My assaults'
 cmb.assaults.description: 'This is the list of all the brawls you started.'
 cmb.user.name: Username
@@ -18,3 +18,7 @@ cmb.region: Region
 cmb.brawl.cannot_attack_this_user_yet: 'You cannot attack this user yet : you won a brawl against him/her recently or his/her team is not ready.'
 cmb.brawl.result.row.won: '%attacker% (%attackerMastery% CMP) won against %defender% (%defenderMastery% CMP)'
 cmb.brawl.result.row.lost: '%attacker% (%attackerMastery% CMP) lost against %defender% (%defenderMastery% CMP)'
+cmb.brawl.strike-back: 'You lost this one, but you can strike back'
+cmb.brawl.strike-back-tips: 'You probably should play LoL to improve your team'
+cmb.brawl.update_team: 'Update your team : the champions'' order may turn the brawl in your favor'
+cmb.brawl.or: or

@@ -10,10 +10,30 @@
                 </h1>
             </div>
 
+            {% if (strikeBack) %}
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">{{ 'cmb.brawl.strike-back' | trans }}
+                                <small>{{ 'cmb.brawl.strike-back-tips' | trans }}</small>
+                            </h2>
+                        </div>
+                        <div class="panel-body">
+                            <p>
+                                <a href="{{ path('user_default_editteam') }}">{{ 'cmb.brawl.update_team' | trans }}</a><br/>
+                                {{ 'cmb.brawl.or' | trans }}<br/>
+                                <a href="{{ path('app_brawl_challenge', {'id':strikeBackId}) }}">{{ 'cmb.summoner.challenge' | trans }}</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
             <div class="col-md-8 col-md-offset-2 text-center">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h2 class="panel-title">{{ 'cmb.brawl.overview' | trans }} : {{ summaryAttackerRounds }} - {{ summaryDefenderRounds }}</h2>
+                        <h2 class="panel-title">{{ 'cmb.brawl.overview' | trans }} : {{ summaryAttackerRounds }}
+                            - {{ summaryDefenderRounds }}</h2>
                     </div>
 
                     <div class="panel-body row">

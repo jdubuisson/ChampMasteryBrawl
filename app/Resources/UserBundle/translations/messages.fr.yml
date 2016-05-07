@@ -18,7 +18,7 @@ cmb.mastery_points.explanations: 'Les Points de Maîtrise de Champion (or PMC) s
 cmb.assaults.explanations: 'Un assaut est une baston que tu as déclenché.'
 cmb.defenses.explanations: 'Une défense est une baston que quelqu''un a déclenché contre toi.'
 cmb.list.opponents: 'Trouver un adversaire'
-cmb.defenses.button: 'Voir tes défenses (et venge-toi !)'
+cmb.defenses.button: 'Voir tes défenses (et contre-attaque !)'
 cmb.assaults.button: 'Voir tes assauts'
 cmb.share_profile.button: 'Partager sur ton mur Facebook'
 cmb.profile.choose_username: 'Choisis un nom d''utilisateur pour ce jeu'

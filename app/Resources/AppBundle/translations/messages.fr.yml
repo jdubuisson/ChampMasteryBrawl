@@ -8,7 +8,7 @@ cmb.brawl.overview: Résumé
 cmb.defenses: 'My défenses'
 cmb.defenses.description: 'Voici la liste des bastons que quelqu''un a déclenché contre toi.'
 cmb.brawl.date: Date
-cmb.brawl.view: Détails
+cmb.brawl.view: 'Détails et contre-attaque'
 cmb.assaults: 'Mes Assauts'
 cmb.assaults.description: 'Voici la liste des bastons que tu as déclenché.'
 cmb.user.name: 'Nom d''utilisateur'
@@ -18,3 +18,7 @@ cmb.region: Serveur
 cmb.brawl.cannot_attack_this_user_yet: 'Tu ne peux pas attaquer cet utilisateur : tu l''as vaincu(e) récemment ou bien son équipe n''est pas prête.'
 cmb.brawl.result.row.won: '%attacker% (%attackerMastery% PMC) a gagné contre %defender% (%defenderMastery% PMC)'
 cmb.brawl.result.row.lost: '%attacker% (%attackerMastery% PMC) a perdu contre %defender% (%defenderMastery% PMC)'
+cmb.brawl.strike-back: 'Tu as perdu cette baston'
+cmb.brawl.strike-back-tips: 'Tu devrais surement jouer à LoL pour améliorer ton équipe'
+cmb.brawl.update_team: 'Modifie ton équipe : l''ordre des champions peut faire la différence'
+cmb.brawl.or: ou

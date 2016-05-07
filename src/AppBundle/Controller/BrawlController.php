@@ -78,6 +78,15 @@ class BrawlController extends Controller
         $attackerMasteryArray = $championMasteryRepository->findPointsBySummonerAndChampionIds($brawl->getAttacker()->getSummoner(), $brawl->getAttackerChampionIds());
         $defenderMasteryArray = $championMasteryRepository->findPointsBySummonerAndChampionIds($brawl->getDefender()->getSummoner(), $brawl->getDefenderChampionIds());
 
+        $strikeBack=false;
+        $strikeBackId = null;
+        if ($user->getId() == $brawl->getAttacker()->getId() && $brawl->getVictoriousUser() != 'attacker') {
+            $strikeBack = true;
+            $strikeBackId = $brawl->getDefender()->getId();
+        } elseif ($user->getId() == $brawl->getDefender()->getId() && $brawl->getVictoriousUser() == 'attacker') {
+            $strikeBack = true;
+            $strikeBackId = $brawl->getAttacker()->getId();
+        }
 
         //summary
         $summaryAttackerRounds = 0;
@@ -124,7 +133,9 @@ class BrawlController extends Controller
             'brawl' => $brawl,
             'summaryAttackerRounds' => $summaryAttackerRounds,
             'summaryDefenderRounds' => $summaryDefenderRounds,
-            'resultsForDisplay' => $resultsForDisplay
+            'resultsForDisplay' => $resultsForDisplay,
+            'strikeBack' => $strikeBack,
+            'strikeBackId' => $strikeBackId
         ]);
     }
 
