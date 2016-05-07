@@ -78,10 +78,22 @@ class BrawlController extends Controller
         $attackerMasteryArray = $championMasteryRepository->findPointsBySummonerAndChampionIds($brawl->getAttacker()->getSummoner(), $brawl->getAttackerChampionIds());
         $defenderMasteryArray = $championMasteryRepository->findPointsBySummonerAndChampionIds($brawl->getDefender()->getSummoner(), $brawl->getDefenderChampionIds());
 
+
+        //summary
+        $summaryAttackerRounds = 0;
+        $summaryDefenderRounds = 0;
+
         for ($round = 1; $round <= 5; $round++) {
             $functionGetAtk = 'getAttackerChampion' . $round;
             $functionGetDef = 'getDefenderChampion' . $round;
             $functionGetVictor = 'getVictoriousChampion' . $round;
+
+            $victor = $brawl->$functionGetVictor();
+            if ($victor == 'attacker') {
+                $summaryAttackerRounds++;
+            } else {
+                $summaryDefenderRounds++;
+            }
 
             $attacker = $staticChampionRepository->findOneByChampionId($brawl->$functionGetAtk());
             $defender = $staticChampionRepository->findOneByChampionId($brawl->$functionGetDef());
@@ -102,13 +114,18 @@ class BrawlController extends Controller
             $resultsForDisplay[] = [
                 'attacker' => $attackerKey,
                 'defender' => $defenderKey,
-                'victor' => $brawl->$functionGetVictor(),
+                'victor' => $victor,
                 'attackerMastery' => $attackerMastery,
                 'defenderMastery' => $defenderMastery
             ];
         }
 
-        return $this->render('AppBundle:Brawl:brawl.html.twig', ['brawl' => $brawl, 'resultsForDisplay' => $resultsForDisplay]);
+        return $this->render('AppBundle:Brawl:brawl.html.twig', [
+            'brawl' => $brawl,
+            'summaryAttackerRounds' => $summaryAttackerRounds,
+            'summaryDefenderRounds' => $summaryDefenderRounds,
+            'resultsForDisplay' => $resultsForDisplay
+        ]);
     }
 
     /**
