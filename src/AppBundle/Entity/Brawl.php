@@ -462,4 +462,13 @@ class Brawl
         $this->date = $date;
     }
 
+    public function getAttackerChampionIds()
+    {
+        return array($this->attackerChampion1, $this->attackerChampion2, $this->attackerChampion3, $this->attackerChampion4, $this->attackerChampion5);
+    }
+
+    public function getDefenderChampionIds()
+    {
+        return array($this->defenderChampion1, $this->defenderChampion2, $this->defenderChampion3, $this->defenderChampion4, $this->defenderChampion5);
+    }
 }

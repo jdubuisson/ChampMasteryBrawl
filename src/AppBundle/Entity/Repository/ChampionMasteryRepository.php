@@ -26,7 +26,7 @@ class ChampionMasteryRepository extends EntityRepository
     public function findTopBySummoner($summoner, $limit = null)
     {
         $query = $this->createQueryBuilder('cm')
-            ->indexBy('cm','cm.championId' )
+            ->indexBy('cm', 'cm.championId')
             ->where('cm.summoner = :summoner')
             ->setParameter('summoner', $summoner)
             ->orderBy('cm.championPoints', 'DESC')->getQuery();
@@ -44,11 +44,27 @@ class ChampionMasteryRepository extends EntityRepository
             ->setParameter('championId', $championId)
             ->getQuery();
         $result = $query->getOneOrNullResult();
-        if($result == null)
-        {
-            $points=0;
+        if ($result == null) {
+            $points = 0;
         } else {
             $points = $result->getChampionPoints();
+        }
+        return $points;
+    }
+
+    public function findPointsBySummonerAndChampionIds($summoner, $championIds)
+    {
+        $query = $this->createQueryBuilder('cm')
+            ->where('cm.summoner = :summoner')->andWhere('cm.championId IN (:championIds)')
+            ->setParameter('summoner', $summoner)
+            ->setParameter('championIds', $championIds)
+            ->getQuery();
+        $result = $query->getResult();
+        $points = array();
+        if ($result != null) {
+            foreach ($result as $champ) {
+                $points[$champ->getChampionId()] = $champ->getChampionPoints();
+            }
         }
         return $points;
     }

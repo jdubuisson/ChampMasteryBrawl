@@ -51,7 +51,7 @@ class BrawlController extends Controller
         //check if we can attack the defendingUser
         $brawlCanTakePlace = $brawlService->checkBrawlRules($user, $defendingUser);
         if (!$brawlCanTakePlace) {
-            $this->addFlash('warning','cmb.brawl.cannot_attack_this_user_yet');
+            $this->addFlash('warning', 'cmb.brawl.cannot_attack_this_user_yet');
             return $this->redirectToRoute('app_brawl_opponents');
         }
         $brawl = $brawlService->computeBrawl($user, $defendingUser);
@@ -71,6 +71,13 @@ class BrawlController extends Controller
         $doctrine = $this->getDoctrine();
         $staticChampionRepository = $doctrine->getRepository('AppBundle:StaticChampion');
         $resultsForDisplay = array();
+
+
+        $championMasteryRepository = $doctrine->getRepository('AppBundle:ChampionMastery');
+
+        $attackerMasteryArray = $championMasteryRepository->findPointsBySummonerAndChampionIds($brawl->getAttacker()->getSummoner(), $brawl->getAttackerChampionIds());
+        $defenderMasteryArray = $championMasteryRepository->findPointsBySummonerAndChampionIds($brawl->getDefender()->getSummoner(), $brawl->getDefenderChampionIds());
+
         for ($round = 1; $round <= 5; $round++) {
             $functionGetAtk = 'getAttackerChampion' . $round;
             $functionGetDef = 'getDefenderChampion' . $round;
@@ -80,15 +87,25 @@ class BrawlController extends Controller
             $defender = $staticChampionRepository->findOneByChampionId($brawl->$functionGetDef());
             if ($attacker == null) {
                 $attackerKey = null;
+                $attackerMastery = 0;
             } else {
                 $attackerKey = $attacker->getChampionKey();
+                $attackerMastery = $attackerMasteryArray[$attacker->getChampionId()];
             }
             if ($defender == null) {
                 $defenderKey = null;
+                $defenderMastery = 0;
             } else {
                 $defenderKey = $defender->getChampionKey();
+                $defenderMastery = $defenderMasteryArray[$defender->getChampionId()];
             }
-            $resultsForDisplay[] = ['attacker' => $attackerKey, 'defender' => $defenderKey, 'victor' => $brawl->$functionGetVictor()];
+            $resultsForDisplay[] = [
+                'attacker' => $attackerKey,
+                'defender' => $defenderKey,
+                'victor' => $brawl->$functionGetVictor(),
+                'attackerMastery' => $attackerMastery,
+                'defenderMastery' => $defenderMastery
+            ];
         }
 
         return $this->render('AppBundle:Brawl:brawl.html.twig', ['brawl' => $brawl, 'resultsForDisplay' => $resultsForDisplay]);

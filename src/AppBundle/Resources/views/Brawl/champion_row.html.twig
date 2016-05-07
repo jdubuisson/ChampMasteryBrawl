@@ -17,3 +17,14 @@
         </div>
     </td>
 </tr>
+<tr>
+    <td colspan="3">
+        <div class="bg-info img-rounded">
+            {% if row.victor == 'attacker' %}
+                {{ 'cmb.brawl.result.row.won' | trans({'%attacker%': row.attacker, '%defender%': row.defender, '%attackerMastery%': row.attackerMastery, '%defenderMastery%': row.defenderMastery, }) }}
+            {% else %}
+                {{ 'cmb.brawl.result.row.lost' | trans({'%attacker%': row.attacker, '%defender%': row.defender, '%attackerMastery%': row.attackerMastery, '%defenderMastery%': row.defenderMastery, }) }}
+            {% endif %}
+        </div>
+    </td>
+</tr>
