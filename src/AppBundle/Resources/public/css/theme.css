@@ -121,3 +121,17 @@ body {
 .home .intro {
     background: rgba(20, 20, 20, 0.85);
 }
+
+.table > tbody > tr > td.brawl-row-details {
+    padding-top: 0;
+}
+
+.table > tbody > tr.brawl-row-champions > td {
+    padding-bottom: 4px;
+}
+
+
+.table > tbody > tr > td.brawl-row-details div {
+    background-color: dimgrey;
+    padding: 3px;
+}

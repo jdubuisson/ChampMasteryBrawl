@@ -1,4 +1,4 @@
-<tr>
+<tr class="brawl-row-champions">
     <td>
         <div class="{% if row.victor == 'attacker' %}bg-success{% else %}bg-danger{% endif %} img-rounded">
             {% if row.attacker is not null %}
@@ -18,13 +18,13 @@
     </td>
 </tr>
 <tr>
-    <td colspan="3">
-        <div class="bg-info img-rounded">
-            {% if row.victor == 'attacker' %}
+    <td class="brawl-row-details" colspan="3">
+        <div class="img-rounded">
+            <small>{% if row.victor == 'attacker' %}
                 {{ 'cmb.brawl.result.row.won' | trans({'%attacker%': row.attacker, '%defender%': row.defender, '%attackerMastery%': row.attackerMastery, '%defenderMastery%': row.defenderMastery, }) }}
             {% else %}
                 {{ 'cmb.brawl.result.row.lost' | trans({'%attacker%': row.attacker, '%defender%': row.defender, '%attackerMastery%': row.attackerMastery, '%defenderMastery%': row.defenderMastery, }) }}
-            {% endif %}
+            {% endif %}</small>
         </div>
     </td>
 </tr>
