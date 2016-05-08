@@ -52,6 +52,7 @@ security:
         - { path: ^/[a-z]+/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/[a-z]+/resetting, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/[a-z]+/connect, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/[a-z]+/about, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/[a-z]+/admin/, role: ROLE_ADMIN }
         - { path: ^/[a-z]+/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/[a-z]+/, roles: ROLE_USER }

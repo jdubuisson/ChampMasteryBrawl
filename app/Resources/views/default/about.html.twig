@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h1>{{ 'cmb.about' | trans }}</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'cmb.about.disclaimer.title' | trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        {{ 'cmb.about.disclaimer.content' | trans }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'cmb.about.github.title' | trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        {{ 'cmb.about.github.content' | trans }} : <a href=https://github.com/jdubuisson/ChampMasteryBrawl">https://github.com/jdubuisson/ChampMasteryBrawl</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h2>{{ 'cmb.help' | trans }}</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'cmb.help.championmastery.title' | trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        {{ 'cmb.help.championmastery.content' | trans }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'cmb.help.riot-account.title' | trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        {{ 'cmb.help.riot-account.content' | trans }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'cmb.help.summoner.title' | trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        {{ 'cmb.help.summoner.content' | trans }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'cmb.help.region.title' | trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        {{ 'cmb.help.region.content' | trans }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ 'cmb.help.win.title' | trans }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        {{ 'cmb.help.win.content' | trans }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
