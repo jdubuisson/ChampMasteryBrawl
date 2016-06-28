@@ -12,7 +12,7 @@ You can edit your team (change champions & their order) to better match your opp
 Accounts are created automatically once a user logs-in with his/her Google/Facebook account. A mandatory "profile" step is presented to new user so that they provide a summoner name/region and a username (screen name) for "ChampMastery : Brawl".
 > The screen name fills two roles : it helps identify accounts using the same summoner and it protects the user's privacy (we do not use their name from Google/Facebook)
 
-Feel free to play-test it now :http://champmastery.nanto.fr !
+~~Feel free to play-test it now :http://champmastery.nanto.fr !~~
 
 ##Install
 
